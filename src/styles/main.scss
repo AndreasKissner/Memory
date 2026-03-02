@@ -1,0 +1,12 @@
+
+body{
+    height: 100vh;
+}
+.card{
+    height: 100px;
+    background-color: rgb(201, 193, 33);
+    aspect-ratio: 1 / 1;
+}
+.is-flipped{
+    background-color: red;
+}
