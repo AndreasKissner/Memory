@@ -1,0 +1,19 @@
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+}
+
+.settings-headline-svg {
+  width: 270px;               
+  height: 90px;               
+  display: block;
+}
+
+.settings{
+  border: 2px solid black;
+  width:1100px ;
+  height:540px;
+}

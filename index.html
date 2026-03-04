@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Webseite</title>
-  
+    <title>Memory Game</title>
+    <link rel="icon" type="image/png" sizes="60x60" href="/favicon.png">
+    <!-- FOUC Fix -->
+    <style>
+        html {
+            visibility: hidden;
+        }
+    </style>
+    <script type="module" src="./src/main.ts"></script>
 </head>
+
 <body>
 
-<section id="field">
-    <button class="card"> Click here</button>
-</section>
+    <section class="container">
+        <section class="hero-titles">
+            <h1 class="hero-titles__main">It's play time.</h1>
+            <h2 class="hero-titles__sub">Ready to play?</h2>
+        </section>
 
-<script type="module" src="./src/main.ts"></script>
+        <a href="./pages_html/settings.html" class="play-link">
+            <img src="/assets/img/startsite/controller.svg" alt="Controller" class="play-link__icon">
+
+            <span class="play-link__text">Play</span>
+
+            <div class="play-link__arrow-container">
+                <img src="/assets/img/startsite/arrow1.svg" alt="" class="play-link__arrow play-link__arrow--one">
+                <img src="/assets/img/startsite/arrow2.svg" alt="" class="play-link__arrow play-link__arrow--two">
+            </div>
+        </a>
+    </section>
+
+
 </body>
+
 </html>

@@ -1,0 +1,18 @@
+
+@font-face {
+  font-family: 'Almarai';
+  src: url('/assets/fonts/almarai.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Redrose';
+  src: url('/assets/fonts/red-rose-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+$almarai: 'Almarai', sans-serif;
+$red-rose: 'Redrose', sans-serif;

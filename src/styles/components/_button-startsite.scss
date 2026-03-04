@@ -1,0 +1,69 @@
+@use "../abstract/color-variables" as col;
+@use "../abstract//font-varibales" as font;
+
+.play-link {
+    background-color: col.$secondary_yello;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    width: 250px;
+    height:98px;
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &__icon {
+        transition: transform 0.3s ease; // Animation für den Controller
+        display: block;
+    
+    }
+
+    &__text {
+        margin: 0 10px;
+        color: black;
+        font-size:40px;
+        font-family: font.$red-rose ;
+        font-weight: bold;
+    }
+
+    &__arrow-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 20px; // Breite deines Icons anpassen
+        height: 20px;
+    }
+
+    & &__arrow {
+        transition: opacity 0.3s ease;
+        position: absolute; // Übereinander legen für den Tausch
+        left: 0;
+        
+        &--one {
+            opacity: 1; // Sichtbar im Normalzustand
+        }
+
+        &--two {
+            opacity: 0; // Unsichtbar im Normalzustand
+        }
+    }
+
+    // Hover-Logik
+    &:hover {
+        transform: scale(1.1); // NEU: Der ganze Button wird 10% größer
+
+        .play-link__icon {
+            transform: rotate(-45deg); // Controller dreht sich
+        }
+
+        .play-link__arrow--one {
+            opacity: 0; // Pfeil 1 verschwindet
+        }
+
+        .play-link__arrow--two {
+            opacity: 1; // Pfeil 2 erscheint an der Stelle
+        }
+    }
+}
