@@ -1,19 +1,51 @@
+@use "../components/nav-left-settings";
 
 body{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:100vh;
+  margin: 0;
 }
 
-.settings-headline-svg {
-  width: 270px;               
-  height: 90px;               
-  display: block;
+// Zentriert den gesamten Inhalt auf dem Bildschirm
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-.settings{
-  border: 2px solid black;
-  width:1100px ;
-  height:540px;
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    // Sorgt dafür, dass Kinder (Logo) standardmäßig links starten
+    align-items: flex-start; 
+    width: 1100px; // Gleiche Breite wie das Panel, damit das Logo bündig ist
+
+    &__title {
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+
+    &__logo {
+        width: 270px;
+        height: 90px;
+        display: block;
+        // Explizit links ausgerichtet
+        margin-left: 0;
+    }
+}
+
+.settings-panel-content {
+    border: 2px solid black;
+    width: 1100px;
+    height: 540px;
+    margin-bottom: 90px; 
+    box-sizing: border-box;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    
+    flex-direction: row;
+
+   
 }

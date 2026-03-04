@@ -5,19 +5,127 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" type="image/png" sizes="60x60" href="/favicon.png">
     <script type="module" src="/src/settings.ts"></script>
     <title>Settings</title>
 </head>
 
-<body class="bg-settings">
+<body class="bg-settings page-wrapper">
 
+    <main class="settings-container">
 
-    <section class="container">
-        <img src="/assets/img/settings/Headline.svg" class="settings-headline-svg" alt="Settings">
-<div class="settings"></div>
-    </section>
+        <h1 class="settings-container__title">
+            <img src="/assets/img/settings/Headline.svg" class="settings-container__logo" alt="Einstellungen">
+        </h1>
 
+        <section class="settings-panel-content" aria-label="Benutzereinstellungen">
+
+            <nav class="settings-panel__nav" aria-label="Hauptnavigation">
+                <section class="btn-container">
+                    <h2>Games themes</h2>
+                    <div class="btn-input-box">
+                        <input id="theme-1" type="radio" name="theme-selection" class="circle-checkbox">
+                        <label for="theme-1" class="theme-label">
+                            <span class="circle-display"></span>
+                            <span class="label-text">Theme 1</span>
+                            <img src="../assets/img/settings/mini-line.svg" class="arrow-icon" alt="Mini Line">
+                        </label>
+                    </div>
+
+                    <div class="btn-input-box">
+                        <input id="theme-2" type="radio" name="theme-selection" class="circle-checkbox">
+                        <label for="theme-2" class="theme-label">
+                            <span class="circle-display"></span>
+                            <span class="label-text">Theme 2</span>
+                            <img src="../assets/img/settings/mini-line.svg" class="arrow-icon" alt="Mini Line">
+                        </label>
+                    </div>
+
+                    <div class="btn-input-box">
+                        <input id="theme-3" type="radio" name="theme-selection" class="circle-checkbox">
+                        <label for="theme-3" class="theme-label">
+                            <span class="circle-display"></span>
+                            <span class="label-text">Theme 3</span>
+                            <img src="../assets/img/settings/mini-line.svg" class="arrow-icon" alt="Mini Line">
+                        </label>
+                    </div>
+
+                    <div class="btn-input-box">
+                        <input id="theme-4" type="radio" name="theme-selection" class="circle-checkbox">
+                        <label for="theme-4" class="theme-label">
+                            <span class="circle-display"></span>
+                            <span class="label-text">Theme 4</span>
+                            <img src="../assets/img/settings/mini-line.svg" class="arrow-icon" alt="Mini Line">
+                        </label>
+                    </div>
+
+                    <h3>Choose player</h3>
+                    <div class="btn-input-box">
+                        <input id="theme-3" type="radio" name="theme-selection" class="circle-checkbox">
+                        <label for="theme-3" class="theme-label">
+                            <span class="circle-display"></span>
+                            <span class="label-text">Theme 3</span>
+                            <img src="../assets/img/settings/mini-line.svg" class="arrow-icon" alt="Mini Line">
+                        </label>
+                    </div>
+
+                    <div class="btn-input-box">
+                        <input id="theme-4" type="radio" name="theme-selection" class="circle-checkbox">
+                        <label for="theme-4" class="theme-label">
+                            <span class="circle-display"></span>
+                            <span class="label-text">Theme 4</span>
+                            <img src="../assets/img/settings/mini-line.svg" class="arrow-icon" alt="Mini Line">
+                        </label>
+                    </div>
+                    <h4>Bord size</h4>
+                    <div class="btn-input-box">
+                        <input id="theme-3" type="radio" name="theme-selection" class="circle-checkbox">
+                        <label for="theme-3" class="theme-label">
+                            <span class="circle-display"></span>
+                            <span class="label-text">Theme 3</span>
+                            <img src="../assets/img/settings/mini-line.svg" class="arrow-icon" alt="Mini Line">
+                        </label>
+                    </div>
+
+                    <div class="btn-input-box">
+                        <input id="theme-4" type="radio" name="theme-selection" class="circle-checkbox">
+                        <label for="theme-4" class="theme-label">
+                            <span class="circle-display"></span>
+                            <span class="label-text">Theme 4</span>
+                            <img src="../assets/img/settings/mini-line.svg" class="arrow-icon" alt="Mini Line">
+                        </label>
+                    </div>
+
+                      <div class="btn-input-box">
+                        <input id="theme-4" type="radio" name="theme-selection" class="circle-checkbox">
+                        <label for="theme-4" class="theme-label">
+                            <span class="circle-display"></span>
+                            <span class="label-text">Theme 4</span>
+                            <img src="../assets/img/settings/mini-line.svg" class="arrow-icon" alt="Mini Line">
+                        </label>
+                    </div>
+
+                </section>
+
+            </nav>
+
+            <div class="settings-panel__display">
+
+                <nav class="settings-panel__sub-nav" aria-label="Unternavigation">
+                    <ul class="settings-panel__list" role="list">
+                        <li class="settings-panel__item">
+                            <button type="button" class="settings-panel__button">Sub-Option</button>
+                        </li>
+                    </ul>
+                </nav>
+
+                <img src="/assets/img/settings/preview.png" alt="Vorschau" class="settings-panel__image">
+
+            </div>
+
+        </section>
+
+    </main>
 
 </body>
 

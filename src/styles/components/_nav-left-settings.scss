@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  
+}
+
+.btn-input-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 250px;
+  
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.circle-checkbox {
+    display: none; /* Radio-Button bleibt unsichtbar */
+}
+
+.theme-label {
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    width: 100%;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 18px;
+    position: relative;
+    color: #333; /* Neutrale Textfarbe */
+}
+
+/* Der Ring */
+.circle-display {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px #333; /* Dick am Anfang */
+    position: relative;
+    margin-right: 15px;
+    transition: all 0.2s ease-in-out;
+    flex-shrink: 0;
+}
+
+/* Der Punkt im Ring */
+.circle-display::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Punkt unsichtbar */
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Der Pfeil rechts */
+.arrow-icon {
+    position: absolute;
+    right: 20px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    font-size: 22px;
+}
+
+/* --- HOVER EFFEKTE (REINE MECHANIK) --- */
+
+
+/* Wenn du über das Label fährst (egal wo): */
+.theme-label:hover .circle-display {
+    box-shadow: inset 0 0 0 2px #333; /* Ring wird dünner */
+}
+
+.theme-label:hover .circle-display::after {
+    transform: translate(-50%, -50%) scale(1); /* Punkt erscheint */
+}
+
+.theme-label:hover .label-text {
+    font-weight: bold; /* Text wird dicker beim Hover */
+}
+
+.theme-label:hover .arrow-icon {
+    opacity: 1;
+    transform: translateX(0); /* Pfeil rutscht rein */
+}
+
+/* --- GEWÄHLT ZUSTAND (CHECKED) --- */
+
+/* Die Schrift soll auch dick bleiben, wenn das Theme ausgewählt ist */
+.circle-checkbox:checked + .theme-label .label-text {
+    font-weight: bold;
+}
+
+/* Der Rest bleibt wie gehabt */
+.circle-checkbox:checked + .theme-label .circle-display {
+    box-shadow: inset 0 0 0 2px #333;
+}
+
+.circle-checkbox:checked + .theme-label .circle-display::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.circle-checkbox:checked + .theme-label .arrow-icon {
+    opacity: 1;
+    transform: translateX(0);
+}
