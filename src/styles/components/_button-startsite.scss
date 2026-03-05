@@ -15,7 +15,7 @@
     cursor: pointer;
 
     &__icon {
-        transition: transform 0.3s ease; // Animation für den Controller
+        transition: transform 0.3s ease; 
         display: block;
     
     }
@@ -32,38 +32,38 @@
         position: relative;
         display: flex;
         align-items: center;
-        width: 20px; // Breite deines Icons anpassen
+        width: 20px;
         height: 20px;
     }
 
-    & &__arrow {
+    &__arrow {
         transition: opacity 0.3s ease;
-        position: absolute; // Übereinander legen für den Tausch
+        position: absolute; 
         left: 0;
         
         &--one {
-            opacity: 1; // Sichtbar im Normalzustand
+            opacity: 1;
         }
 
         &--two {
-            opacity: 0; // Unsichtbar im Normalzustand
+            opacity: 0;
         }
     }
 
-    // Hover-Logik
+    // Hover-Logig For Joypad
     &:hover {
-        transform: scale(1.1); // NEU: Der ganze Button wird 10% größer
+        transform: scale(1.1); 
 
         .play-link__icon {
-            transform: rotate(-45deg); // Controller dreht sich
+            transform: rotate(-45deg);
         }
 
         .play-link__arrow--one {
-            opacity: 0; // Pfeil 1 verschwindet
+            opacity: 0; 
         }
 
         .play-link__arrow--two {
-            opacity: 1; // Pfeil 2 erscheint an der Stelle
+            opacity: 1; 
         }
     }
 }

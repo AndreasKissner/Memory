@@ -4,7 +4,7 @@ body{
   margin: 0;
 }
 
-// Zentriert den gesamten Inhalt auf dem Bildschirm
+
 .page-wrapper {
     display: flex;
     justify-content: center;
@@ -16,9 +16,8 @@ body{
 .settings-container {
     display: flex;
     flex-direction: column;
-    // Sorgt dafür, dass Kinder (Logo) standardmäßig links starten
     align-items: flex-start; 
-    width: 1100px; // Gleiche Breite wie das Panel, damit das Logo bündig ist
+    width: 1100px; 
 
     &__title {
         margin: 0;
@@ -30,29 +29,28 @@ body{
         width: 270px;
         height: 90px;
         display: block;
-        // Explizit links ausgerichtet
         margin-left: 0;
     }
 }
 
-.settings-panel-content {
-    border: 2px solid rgb(216, 8, 8);
-    width: 1100px;
-    height: 540px;
-    margin-bottom: 90px; 
-    box-sizing: border-box;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
 
-    .settings-panel__nav{
-        width: 50%;
-        background-color: yellow;
+.settings-btn {
+    width: 126px !important; 
+    height: 55px !important;
+    border: none !important;    // Entfernt den Standard-Rahmen
+    outline: none;             // Entfernt den Fokus-Rahmen beim Klicken
+    margin-right: 25px;
+   
+    
+    .play-link__text {
+        font-size: 20px !important;
     }
 
-    .settings-panel__display{
-        width: 50%;
-        background-color: green;
+    &:hover {
+        transform: scale(1.05);
+
+        .play-link__icon {
+            transform: rotate(-25deg) scale(1.1) !important; 
+        }
     }
 }

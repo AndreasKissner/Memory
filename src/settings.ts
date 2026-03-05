@@ -4,3 +4,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 import "./styles/pages/_settings.scss";
+import "./styles/components/_button-startsite.scss"
