@@ -36,7 +36,7 @@ body{
 }
 
 .settings-panel-content {
-    border: 2px solid black;
+    border: 2px solid rgb(216, 8, 8);
     width: 1100px;
     height: 540px;
     margin-bottom: 90px; 
@@ -44,8 +44,15 @@ body{
     background-color: transparent;
     display: flex;
     justify-content: space-between;
-    
     flex-direction: row;
 
-   
+    .settings-panel__nav{
+        width: 50%;
+        background-color: yellow;
+    }
+
+    .settings-panel__display{
+        width: 50%;
+        background-color: green;
+    }
 }
