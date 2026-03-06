@@ -45,7 +45,7 @@
         align-items: center;
         gap: 6px;
         font-family: font.$almarai ;
-        margin: 28px 0 10px 16px;
+        margin: 28px 0 10px 8px;
     }
 
     &__option {
@@ -161,7 +161,7 @@
         height: 380px;
         background-color: red;
         border-radius: 16px;
-        align-self: center;
+        align-self: flex-end;
     }
 
     &__sub-nav {
