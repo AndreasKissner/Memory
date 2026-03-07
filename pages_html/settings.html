@@ -8,6 +8,9 @@
     <link rel="icon" type="image/png" sizes="60x60" href="/favicon.png">
     <script type="module" src="/src/settings.ts"></script>
     <title>Settings</title>
+    <style>
+  html { visibility: hidden; }
+</style>
 </head>
 
 <body class="bg-settings page-wrapper">
@@ -32,8 +35,8 @@
                         <input id="theme-1" type="radio" name="theme-selection" class="nav-options__radio">
                         <label for="theme-1" class="nav-options__label">
                             <span class="nav-options__indicator" aria-hidden="true"></span>
-                            <span class="nav-options__label-text">Theme 1</span>
-                            <img src="/assets/img/settings/mini-line.svg" class="nav-options__arrow" alt=""
+                            <span class="nav-options__label-text">Code vibes theme</span>
+                            <img src="/assets/img/settings/mini-line.svg" class="nav-options__arrow" alt="Pfeil nach rechts"
                                 aria-hidden="true">
                         </label>
                     </div>
@@ -42,8 +45,8 @@
                         <input id="theme-2" type="radio" name="theme-selection" class="nav-options__radio">
                         <label for="theme-2" class="nav-options__label">
                             <span class="nav-options__indicator" aria-hidden="true"></span>
-                            <span class="nav-options__label-text">Theme 2</span>
-                            <img src="/assets/img/settings/mini-line.svg" class="nav-options__arrow" alt=""
+                            <span class="nav-options__label-text">Gaming theme</span>
+                            <img src="/assets/img/settings/mini-line.svg" class="nav-options__arrow" alt="Pfeil nach rechts"
                                 aria-hidden="true">
                         </label>
                     </div>
@@ -52,8 +55,8 @@
                         <input id="theme-3" type="radio" name="theme-selection" class="nav-options__radio">
                         <label for="theme-3" class="nav-options__label">
                             <span class="nav-options__indicator" aria-hidden="true"></span>
-                            <span class="nav-options__label-text">Theme 3</span>
-                            <img src="/assets/img/settings/mini-line.svg" class="nav-options__arrow" alt=""
+                            <span class="nav-options__label-text">DA Projects theme</span>
+                            <img src="/assets/img/settings/mini-line.svg" class="nav-options__arrow" alt="Pfeil nach rechts"
                                 aria-hidden="true">
                         </label>
                     </div>
@@ -62,8 +65,8 @@
                         <input id="theme-4" type="radio" name="theme-selection" class="nav-options__radio">
                         <label for="theme-4" class="nav-options__label">
                             <span class="nav-options__indicator" aria-hidden="true"></span>
-                            <span class="nav-options__label-text">Theme 4</span>
-                            <img src="/assets/img/settings/mini-line.svg" class="nav-options__arrow" alt=""
+                            <span class="nav-options__label-text">Foods theme</span>
+                            <img src="/assets/img/settings/mini-line.svg" class="nav-options__arrow" alt="Pfeil nach rechts"
                                 aria-hidden="true">
                         </label>
                     </div>
@@ -133,7 +136,7 @@
 
             <div class="settings-panel__display">
                 <div class="theme-preview">
-                    <img src="/assets/img/settings/preview.png" alt="Ausgewähltes Theme Bild"
+                    <img src="/assets/img/settings/theme-img1.svg" alt="Ausgewähltes Theme Bild"
                         class="theme-preview__image">
 
                     <nav class="theme-preview__sub-nav" aria-label="Unternavigation">
@@ -141,8 +144,10 @@
                             <li class="theme-preview__sub-item">
                                 <span>Game Theme</span>
                                 <img src="/assets/img/settings/big-diagonal-line.svg" alt="" aria-hidden="true">
+                                 <img src="/assets/img/settings/line-diagonal.svg" alt="" aria-hidden="true">
                                 <span>Player</span>
                                 <img src="/assets/img/settings/big-diagonal-line.svg" alt="" aria-hidden="true">
+                                 <img src="/assets/img/settings/line-diagonal.svg" alt="" aria-hidden="true">
                                 <span>Board size</span>
                             </li>
                         </ul>

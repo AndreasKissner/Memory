@@ -7,7 +7,7 @@
 
 // ─── Layout-Block ───────────────────────────────
 .settings-panel {
-    
+
     width: 1100px;
     height: 590px;
     margin-bottom: 90px;
@@ -19,12 +19,12 @@
 
     &__nav {
         width: 50%;
-      
+
     }
 
     &__display {
         width: 60%;
-  
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -64,10 +64,11 @@
     &__label {
         display: flex;
         align-items: center;
-        padding-left:45px;
+        padding-left: 35px;
         width: 100%;
+        max-width:215px;
         cursor: pointer;
-         font-family: font.$almarai ;
+        font-family: font.$almarai ;
         font-size: 20px;
         position: relative;
         color: #333;
@@ -104,7 +105,7 @@
 
     &__arrow {
         position: absolute;
-        right: 20px;
+        right: -60px;
         opacity: 0;
         transform: translateX(-10px);
         transition: all 0.3s ease;
@@ -154,10 +155,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap:20px;
+    gap: 20px;
 
     &__image {
-        width:470px;
+        width: 425px;
         height: 380px;
         background-color: red;
         border-radius: 16px;

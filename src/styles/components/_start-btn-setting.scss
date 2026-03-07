@@ -1,0 +1,25 @@
+.settings-btn {
+    width: 126px !important;
+    height: 55px !important;
+    border: none !important;
+    outline: none;
+    margin-right: 25px;
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+
+        .play-link__icon {
+            transform: rotate(-25deg) scale(1.1) !important;
+        }
+    }
+
+    .play-link__text {
+        font-size: 20px !important;
+    }
+}
