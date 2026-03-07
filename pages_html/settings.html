@@ -84,7 +84,7 @@
 
                     <div class="nav-options__option">
                         <input id="player-blue" type="radio" name="player-selection" class="nav-options__radio"
-                            tabindex="-1">
+                            data-player-id="Blue" tabindex="-1">
                         <label for="player-blue" class="nav-options__label" tabindex="0">
                             <span class="nav-options__indicator" aria-hidden="true"></span>
                             <span class="nav-options__label-text">Blue</span>
@@ -95,7 +95,7 @@
 
                     <div class="nav-options__option">
                         <input id="player-orange" type="radio" name="player-selection" class="nav-options__radio"
-                            tabindex="-1">
+                            data-player-id="Orange" tabindex="-1">
                         <label for="player-orange" class="nav-options__label" tabindex="0">
                             <span class="nav-options__indicator" aria-hidden="true"></span>
                             <span class="nav-options__label-text">Orange</span>
@@ -110,7 +110,8 @@
                     </h2>
 
                     <div class="nav-options__option">
-                        <input id="size-16" type="radio" name="size-selection" class="nav-options__radio" tabindex="-1">
+                        <input id="size-16" type="radio" name="size-selection" class="nav-options__radio"
+                            data-size-id="16 Cards" tabindex="-1">
                         <label for="size-16" class="nav-options__label" tabindex="0">
                             <span class="nav-options__indicator" aria-hidden="true"></span>
                             <span class="nav-options__label-text">16 Cards</span>
@@ -120,7 +121,8 @@
                     </div>
 
                     <div class="nav-options__option">
-                        <input id="size-24" type="radio" name="size-selection" class="nav-options__radio" tabindex="-1">
+                        <input id="size-24" type="radio" name="size-selection" class="nav-options__radio"
+                            data-size-id="24 Cards" tabindex="-1">
                         <label for="size-24" class="nav-options__label" tabindex="0">
                             <span class="nav-options__indicator" aria-hidden="true"></span>
                             <span class="nav-options__label-text">24 Cards</span>
@@ -130,7 +132,8 @@
                     </div>
 
                     <div class="nav-options__option">
-                        <input id="size-36" type="radio" name="size-selection" class="nav-options__radio" tabindex="-1">
+                        <input id="size-36" type="radio" name="size-selection" class="nav-options__radio"
+                            data-size-id="36 Cards" tabindex="-1">
                         <label for="size-36" class="nav-options__label" tabindex="0">
                             <span class="nav-options__indicator" aria-hidden="true"></span>
                             <span class="nav-options__label-text">36 Cards</span>
@@ -138,7 +141,6 @@
                                 aria-hidden="true">
                         </label>
                     </div>
-
                 </section>
             </nav>
 
@@ -149,19 +151,15 @@
 
                     <nav class="theme-preview__sub-nav" aria-label="Unternavigation">
                         <ul class="theme-preview__sub-list" role="list">
-                            <li class="theme-preview__sub-item">
-                                <span>Game Theme</span>
-                                <img src="/assets/img/settings/big-diagonal-line.svg" alt="" aria-hidden="true"
-                                    class="theme-divider-big">
-                                <img src="/assets/img/settings/line-diagonal.svg" alt="" aria-hidden="true"
-                                    class="theme-divider-small">
-                                <span>Player</span>
-                                <img src="/assets/img/settings/big-diagonal-line.svg" alt="" aria-hidden="true"
-                                    class="player-divider-big">
-                                <img src="/assets/img/settings/line-diagonal.svg" alt="" aria-hidden="true"
-                                    class="player-divider-small">
-                                <span>Board size</span>
-                            </li>
+                           <li class="theme-preview__sub-item">
+    <span class="sub-item__theme-name">Game Theme</span>
+    <img src="/assets/img/settings/big-diagonal-line.svg" alt="" aria-hidden="true" class="theme-divider-big">
+    <img src="/assets/img/settings/line-diagonal.svg" alt="" aria-hidden="true" class="theme-divider-small">
+    <span class="sub-item__player-name">Player</span>
+    <img src="/assets/img/settings/big-diagonal-line.svg" alt="" aria-hidden="true" class="player-divider-big">
+    <img src="/assets/img/settings/line-diagonal.svg" alt="" aria-hidden="true" class="player-divider-small">
+    <span class="sub-item__size-name">Board size</span>
+</li>
                         </ul>
                         <button class="play-link settings-btn" disabled>
                             <img src="/assets/img/settings/start-btn.svg" alt="Controller" class="play-link__icon">

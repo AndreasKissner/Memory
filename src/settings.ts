@@ -25,6 +25,10 @@ const themeDividerSmall = document.querySelector<HTMLImageElement>('.theme-divid
 const playerDividerBig = document.querySelector<HTMLImageElement>('.player-divider-big');
 const playerDividerSmall = document.querySelector<HTMLImageElement>('.player-divider-small');
 
+const playerNameSpan = document.querySelector<HTMLSpanElement>('.sub-item__player-name');
+const sizeNameSpan = document.querySelector<HTMLSpanElement>('.sub-item__size-name'); 
+
+
 
 async function loadSettingsData() {
   const response = await fetch('/json/data/settings-data.json');
@@ -82,6 +86,10 @@ function handleThemeSelection(themeId: string, themes: Theme[]): void {
 function initPlayerListeners(): void {
   playerRadios.forEach(radio => {
     radio.addEventListener('change', () => {
+      const playerId = radio.dataset.playerId;
+      if (playerId && playerNameSpan) {
+        playerNameSpan.textContent = playerId;
+      }
       selectionState.player = true;
       checkAllSelected();
     });
@@ -91,6 +99,10 @@ function initPlayerListeners(): void {
 function initSizeListeners(): void {
   sizeRadios.forEach(radio => {
     radio.addEventListener('change', () => {
+      const sizeId = radio.dataset.sizeId;
+      if (sizeId && sizeNameSpan) {
+        sizeNameSpan.textContent = sizeId;
+      }
       selectionState.size = true;
       checkAllSelected();
     });
