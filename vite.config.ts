@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: "/Developer%20Akademie/Modul%2014/",
+  base: "./",
   build: {
     rollupOptions: {
       input: {
