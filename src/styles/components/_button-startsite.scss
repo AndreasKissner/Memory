@@ -1,12 +1,10 @@
 @use "../abstract/color-variables" as col;
 @use "../abstract//font-varibales" as font;
+@use "../abstract/mixins/mixins-standard" as flex;
 
 .play-link {
     background-color: col.$secondary_yello;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:10px;
+    @include flex.flex($direction: null, $gap: 10px, $justify: center, $align: center);
     width: 250px;
     height:98px;
     text-decoration: none;
@@ -17,12 +15,11 @@
     &__icon {
         transition: transform 0.3s ease; 
         display: block;
-    
     }
 
     &__text {
         margin: 0 10px;
-        color: black;
+        color: col.$primary-dark;
         font-size:40px;
         font-family: font.$red-rose ;
         font-weight: bold;
@@ -32,8 +29,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        width: 20px;
-        height: 20px;
+        @include flex.size();
     }
 
     &__arrow {

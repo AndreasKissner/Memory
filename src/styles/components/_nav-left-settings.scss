@@ -1,5 +1,6 @@
 @use "../abstract/font-varibales" as font;
 @use "../abstract/color-variables" as col;
+@use "../abstract/mixins/mixins-standard" as flex;
 
 * {
     margin: 0;
@@ -8,14 +9,11 @@
 // ─── Layout-Block ───────────────────────────────
 .settings-panel {
 
-    width: 1100px;
-    height: 590px;
+    @include flex.size(1100px, 590px);
     margin-bottom: 90px;
     box-sizing: border-box;
     background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    @include flex.flex($direction: row, $justify: space-between, $align: null);
 
     &__nav {
         width: 50%;
@@ -24,20 +22,13 @@
 
     &__display {
         width: 60%;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        @include flex.flex($direction: column, $justify: center, $align: center, $gap: null);
     }
 }
 
 // ─── Nav-Options Block ───────────────────────────
 .nav-options {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
+    @include flex.flex($direction: column, $justify: center, $align: flex-start, $gap: null);
     margin-top: 20px;
 
     &__section-title {
@@ -66,7 +57,7 @@
         align-items: center;
         padding-left: 35px;
         width: 100%;
-        max-width:215px;
+        max-width: 215px;
         cursor: pointer;
         font-family: font.$almarai ;
         font-size: 20px;
@@ -75,8 +66,9 @@
     }
 
     &__indicator {
-        width: 20px;
-        height: 20px;
+
+        @include flex.size();
+
         border-radius: 50%;
         box-shadow: inset 0 0 0 4px #333;
         position: relative;
@@ -92,6 +84,7 @@
             left: 50%;
             width: 10px;
             height: 10px;
+            @include flex.size(10px, 10px);
             background-color: #333;
             border-radius: 50%;
             transform: translate(-50%, -50%) scale(0);
@@ -151,27 +144,17 @@
 
 // ─── Theme-Preview Block ─────────────────────────
 .theme-preview {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
+    @include flex.flex($direction: column, $gap: 20px, $justify: center, $align: center);
 
     &__image {
-        width: 425px;
-        height: 380px;
-        background-color: red;
+        @include flex.size(425px, 380px);
         border-radius: 16px;
         align-self: flex-end;
     }
 
     &__sub-nav {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        width: 590px;
-        height: 81px;
-        gap: 20px;
+        @include flex.flex($direction: null, $justify: flex-end, $align: center, $gap: 20px);
+        @include flex.size(590px, 81px);
         margin-bottom: 40px;
         background-color: col.$white-bg-setting-start;
     }
@@ -181,56 +164,49 @@
     }
 
     &__sub-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex.flex($direction: null, $justify: center, $align: center, $gap: 12px);
         font-size: 20px;
         font-family: font.$almarai ;
         font-weight: 400;
-        gap: 12px;
     }
 
     &__sub-item img {
-        // alle Bilder im sub-item
         width: 40px;
         height: 50px;
-    }
-
-    &__button {
-        // styles später
+         @include flex.size(40px, 50px);
     }
 }
 
 .theme-divider-big {
-  display: block;
+    display: block;
 }
 
 .theme-divider-small {
-  display: none;
+    display: none;
 }
 
 .player-divider-big {
-  display: block;
+    display: block;
 }
 
 .player-divider-small {
-  display: none;
+    display: none;
 }
 
 .is-selected {
-  &.theme-divider-big {
-    display: none;
-  }
+    &.theme-divider-big {
+        display: none;
+    }
 
-  &.theme-divider-small {
-    display: block;
-  }
+    &.theme-divider-small {
+        display: block;
+    }
 
-  &.player-divider-big {
-    display: none;
-  }
+    &.player-divider-big {
+        display: none;
+    }
 
-  &.player-divider-small {
-    display: block;
-  }
+    &.player-divider-small {
+        display: block;
+    }
 }

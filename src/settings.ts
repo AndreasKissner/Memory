@@ -103,6 +103,9 @@ function updateDividers(allSelected: boolean): void {
 function updateStartButton(allSelected: boolean): void {
   if (allSelected) {
     startButton?.removeAttribute('disabled');
+    startButton?.addEventListener('click', () => {
+      window.location.href = '/pages_html/game.html';
+    });
   } else {
     startButton?.setAttribute('disabled', '');
   }
@@ -151,7 +154,6 @@ function initPlayerListeners(): void {
     });
   });
 }
-
 
 /**
  * Sets up change event listeners for board size selection radios.

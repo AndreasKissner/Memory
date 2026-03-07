@@ -3,6 +3,7 @@
 @use "abstract/font-varibales" as font;
 
 
+
 * {
     margin: 0;
     padding: 0;
@@ -18,8 +19,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    @include flex.flex-center;
-
+    @include flex.flex($direction: column, $gap: 40px);
 }
 
 // Content 1440px max
@@ -27,17 +27,14 @@ body {
     width: 100%;
     max-width: 1440px;
     padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    @include flex.flex($direction: column, $gap: 40px);
 }
 
 .hero-titles {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    .dein-element {
+        @include flex.flex($direction: column, $gap: null);
+    }
+
     color: col.$white-standard;
 
     &__main {
