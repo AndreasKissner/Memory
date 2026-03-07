@@ -200,3 +200,37 @@
         // styles später
     }
 }
+
+.theme-divider-big {
+  display: block;
+}
+
+.theme-divider-small {
+  display: none;
+}
+
+.player-divider-big {
+  display: block;
+}
+
+.player-divider-small {
+  display: none;
+}
+
+.is-selected {
+  &.theme-divider-big {
+    display: none;
+  }
+
+  &.theme-divider-small {
+    display: block;
+  }
+
+  &.player-divider-big {
+    display: none;
+  }
+
+  &.player-divider-small {
+    display: block;
+  }
+}
