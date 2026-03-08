@@ -4,10 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/png" sizes="60x60" href="/favicon.png">
     <title>Game Memory</title>
-  <script type="module" src="/src/game.ts"></script>
+   <script type="module" src="/src/game.ts"></script>
+    
+    <style>
+        html {
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
-<h1>Hello Game</h1>
+
+  <section class="wrapper-content">
+ 
+    <header>
+      <nav>
+        <section class="points-player">
+          <div class="player-one">
+            <img class="player-color" src="/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg" alt="">
+            <span class="player-color  --version-blue">Blue</span>
+            <span class="points-one  --version-blue --">0</span>
+          </div>
+          <d iv class="player-two">
+            <img class="player-color" src="/assets/img/themes/code-vibe-theme/orange-right-flash-code.svg" alt="">
+            <span class="player-color  --version-orange">Orange</span>
+            <span class="points-one  --version-orange">0</span>
+          </div>
+        </section>
+
+        <section class="current-player">
+          <span>Current player :</span>
+          <img src="/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg" alt="">
+        </section>
+
+        <button class="exit-game">
+          <img src="/assets/img/themes/code-vibe-theme/exit-code-vibe.svg" alt="">
+          <span>Exit game</span>
+        </button>
+      </nav>
+    </header>
+
+  </section>
+
+
 </body>
 </html>

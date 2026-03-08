@@ -39,7 +39,8 @@ const sizeNameSpan = document.querySelector<HTMLSpanElement>('.sub-item__size-na
  * * @returns {Promise<void>} A promise that resolves when initialization is complete.
  */
 async function loadSettingsData() {
-  const response = await fetch('/json/data/settings-data.json');
+  const base = import.meta.env.BASE_URL;
+  const response = await fetch(`${base}json/data/settings-data.json`);
   const data: SettingsData = await response.json();
   initThemeListeners(data.themes);
   initPlayerListeners();
@@ -104,7 +105,7 @@ function updateStartButton(allSelected: boolean): void {
   if (allSelected) {
     startButton?.removeAttribute('disabled');
     startButton?.addEventListener('click', () => {
-      window.location.href = '/pages_html/game.html';
+      window.location.href = `${import.meta.env.BASE_URL}pages_html/game.html`;
     });
   } else {
     startButton?.setAttribute('disabled', '');
@@ -130,7 +131,7 @@ function saveCurrentSettings(): void {
 function handleThemeSelection(themeId: string, themes: Theme[]): void {
   const selectedTheme = themes.find(theme => theme.id === themeId);
   if (selectedTheme && themeImage && themeNameSpan) {
-    themeImage.src = selectedTheme.img;
+    themeImage.src = `${import.meta.env.BASE_URL}${selectedTheme.img}`;
     themeNameSpan.textContent = selectedTheme.name;
     selectionState.theme = true;
     selectionState.themeId = themeId;

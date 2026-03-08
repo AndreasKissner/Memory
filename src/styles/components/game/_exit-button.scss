@@ -1,0 +1,18 @@
+@use "../../abstract/color-variables" as col;
+@use "../../abstract/font-varibales" as font;
+@use "../../abstract/mixins/mixins-standard" as flex;
+
+.exit-game {
+    background-color: #86E9D633;
+    width: 210px;
+    height: 65px;
+    border-color: #4DD5BC;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: font.$red-rose ;
+    color: col.$white-standard;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px
+}

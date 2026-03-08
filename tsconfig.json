@@ -16,6 +16,7 @@
     "skipLibCheck": true,                // schneller, da node_modules-Typen nicht geprüft werden
     "noEmit": true,                      // keine JS-Ausgabe, Build übernimmt Vite
 
+     "types": ["vite/client"],
 
     /* Sonstiges */
     "esModuleInterop": true,             // bessere Import-Kompatibilität
