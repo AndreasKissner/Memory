@@ -9,10 +9,19 @@
     border-color: #4DD5BC;
     font-size: 24px;
     font-weight: 700;
-    font-family: font.$red-rose ;
+    font-family: font.$red-rose;
     color: col.$white-standard;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:20px
+    gap: 20px;
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &__text {
+        pointer-events: none;
+    }
 }

@@ -4,49 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" type="image/png" sizes="60x60" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="60x60" href="/favicon.png">
     <title>Game Memory</title>
-   <script type="module" src="/src/game.ts"></script>
-    
+    <script type="module" src="/src/game.ts"></script>
     <style>
-        html {
-            visibility: hidden;
-        }
+        html { visibility: hidden; }
     </style>
 </head>
 <body>
 
-  <section class="wrapper-content">
- 
-    <header>
-      <nav>
-        <section class="points-player">
-          <div class="player-one">
-            <img class="player-color" src="/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg" alt="">
-            <span class="player-color  --version-blue">Blue</span>
-            <span class="points-one  --version-blue --">0</span>
-          </div>
-          <d iv class="player-two">
-            <img class="player-color" src="/assets/img/themes/code-vibe-theme/orange-right-flash-code.svg" alt="">
-            <span class="player-color  --version-orange">Orange</span>
-            <span class="points-one  --version-orange">0</span>
-          </div>
-        </section>
+<section class="game-wrapper">
 
-        <section class="current-player">
-          <span>Current player :</span>
-          <img src="/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg" alt="">
-        </section>
+    <header class="game-header">
+        <nav class="game-header__nav">
 
-        <button class="exit-game">
-          <img src="/assets/img/themes/code-vibe-theme/exit-code-vibe.svg" alt="">
-          <span>Exit game</span>
-        </button>
-      </nav>
+            <section class="player-scores">
+                <div class="player-scores__player player-scores__player--blue">
+                    <img class="player-scores__icon" src="/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg" alt="">
+                    <span class="player-scores__name">Blue</span>
+                    <span class="player-scores__points">0</span>
+                </div>
+                <div class="player-scores__player player-scores__player--orange">
+                    <img class="player-scores__icon" src="/assets/img/themes/code-vibe-theme/orange-right-flash-code.svg" alt="">
+                    <span class="player-scores__name">Orange</span>
+                    <span class="player-scores__points">0</span>
+                </div>
+            </section>
+
+            <section class="current-player">
+                <span class="current-player__label">Current player :</span>
+                <img class="current-player__icon" src="/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg" alt="">
+            </section>
+
+            <button class="exit-game">
+                <img class="exit-game__icon" src="/assets/img/themes/code-vibe-theme/exit-code-vibe.svg" alt="">
+                <span class="exit-game__text">Exit game</span>
+            </button>
+
+        </nav>
     </header>
 
-  </section>
+   <section class="cards-grid">
+    <div class="memory-card">
+        <div class="memory-card__inner">
+            <div class="memory-card__front">
+                <img src="/assets/img/cards/code-vibes/Front-1.svg" alt="" class="memory-card__img">
+            </div>
+            <div class="memory-card__back">
+                <img src="/assets/img/cards/code-vibes/bg-vibes.svg" alt="" class="memory-card__img">
+            </div>
+        </div>
+    </div>
+</section>
 
+</section>
 
 </body>
 </html>
