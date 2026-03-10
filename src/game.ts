@@ -8,10 +8,16 @@ import type { GameState } from "./interface-game";
 const gameState: GameState = {
   firstCard: null,
   secondCard: null,
-  isLocked: false
+  isLocked: false,
+  currentPlayer: 'Blue',
+  scoreBlue: 0,
+  scoreOrange: 0
 };
 
 const cards = document.querySelectorAll<HTMLDivElement>(".memory-card");
+const scoreBlue = document.querySelector<HTMLSpanElement>('.player-scores__player--blue .player-scores__points');
+const scoreOrange = document.querySelector<HTMLSpanElement>('.player-scores__player--orange .player-scores__points');
+const currentPlayerIcon = document.querySelector<HTMLImageElement>('.current-player__icon');
 
 function handleCardClick(card: HTMLDivElement): void {
   if (gameState.isLocked) return;
@@ -34,6 +40,7 @@ function checkForMatch(): void {
   console.log('isMatch:', isMatch);
   isMatch ? disableCards() : unflipCards();
 }
+
 function disableCards(): void {
   gameState.firstCard?.removeEventListener('click', onCardClick);
   gameState.secondCard?.removeEventListener('click', onCardClick);
