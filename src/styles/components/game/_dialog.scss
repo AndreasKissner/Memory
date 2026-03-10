@@ -1,0 +1,103 @@
+@use "../../abstract/color-variables" as col;
+@use "../../abstract/font-varibales" as font;
+
+.quit-dialog {
+    border: none;
+    padding: 0;
+
+    background-color: col.$white-standard;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    max-width: 550px;
+    width: 90%;
+    margin: auto;
+
+    // GPU-Optimierung: Bereitet den Browser auf die Bewegung vor
+    will-change: transform, opacity;
+
+    // Start-Zustand (leicht unterhalb und unsichtbar)
+    opacity: 0;
+    transform: translateY(150px);
+
+    &[open] {
+        opacity: 1;
+        transform: translateY(0);
+        
+        // Die "Cremige" Transition
+        // cubic-bezier(0.22, 1, 0.36, 1) ist extrem weich (Quint Out)
+        transition: 
+            transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), 
+            opacity 0.4s ease-out,
+            display 0.5s allow-discrete, 
+            overlay 0.5s allow-discrete;
+
+        &::backdrop {
+            opacity: 1;
+            transition: opacity 0.4s ease-out;
+        }
+    }
+
+    @starting-style {
+        &[open] {
+            opacity: 0;
+            transform: translateY(150px);
+        }
+        &[open]::backdrop {
+            opacity: 0;
+        }
+    }
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(3px);
+        opacity: 0;
+    }
+
+    // --- REST DER STYLES (BLEIBT GLEICH) ---
+    &__container {
+        padding: 50px 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        font-family: font.$red-rose;
+        font-size: 32px;
+        font-weight: 700;
+        color: #333333; 
+        margin: 0 0 40px 0;
+        line-height: 1.2;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__button {
+        cursor: pointer;
+        font-family: font.$red-rose;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 15px 30px;
+        border-radius: 4px;
+        border: 2px solid #4DD5BC;
+        min-width: 180px;
+        transition: transform 0.1s ease, background-color 0.2s;
+
+        &:active { transform: scale(0.96); }
+        &--primary {
+            background-color: #4DD5BC;
+            color: col.$white-standard;
+            &:hover { background-color: #4DD5BC}
+        }
+        &--secondary {
+            background-color: transparent;
+            color: #4DD5BC;
+            &:hover { background-color: #4DD5BC11; }
+        }
+    }
+}

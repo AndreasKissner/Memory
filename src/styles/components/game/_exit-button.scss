@@ -6,7 +6,7 @@
     background-color: #86E9D633;
     width: 210px;
     height: 65px;
-    border-color: #4DD5BC;
+    border: 1px solid #4DD5BC; // border-color allein reicht oft nicht ohne border-style
     font-size: 24px;
     font-weight: 700;
     font-family: font.$red-rose;
@@ -15,6 +15,8 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    cursor: pointer; // Wichtig für die UX
+    border-radius: 4px;
 
     &__icon {
         width: 24px;

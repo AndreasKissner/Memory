@@ -1,0 +1,80 @@
+
+
+@use "../../abstract/color-variables" as col;
+@use "../../abstract/font-varibales" as font;
+.game-over-dialog {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    border: none;
+    padding: 0;
+    background-color: col.$primary-dark;
+}
+.game-over-dialog__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    color: col.$white-standard;
+    font-family: font.$red-rose;
+}
+.game-over-dialog__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    color: col.$white-standard;
+    font-family: font.$red-rose;
+}
+
+.game-over-dialog__title {
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.game-over-dialog__subtitle {
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.game-over-dialog__scores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.game-over-dialog__player {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.game-over-dialog__icon {
+    width: 60px;
+    height: 60px;
+}
+
+.game-over-dialog__name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.game-over-dialog__points {
+    font-size: 48px;
+    font-weight: 700;
+}
+.game-over-dialog__winner {
+    font-size: 32px;
+    font-weight: 700;
+}
+

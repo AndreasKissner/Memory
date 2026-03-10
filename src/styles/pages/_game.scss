@@ -1,7 +1,10 @@
+
 @use "../components/game/memory-card";
 @use "../components/start-btn-setting.scss";
 @use "../components/nav-left-settings";
 @use "../components/game/exit-button";
+@use "../components/game/dialog";
+@use "../components/game/game-over-dialog";
 
 @use "../abstract/color-variables" as col;
 @use "../abstract/font-varibales" as font;

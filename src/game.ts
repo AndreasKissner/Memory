@@ -14,17 +14,24 @@ const gameState: GameState = {
   scoreOrange: 0
 };
 
+// ─── DOM Elemente ───────────────────────────────
 const cards = document.querySelectorAll<HTMLDivElement>(".memory-card");
-const scoreBlue = document.querySelector<HTMLSpanElement>('.player-scores__player--blue .player-scores__points');
-const scoreOrange = document.querySelector<HTMLSpanElement>('.player-scores__player--orange .player-scores__points');
+const scoreBlueEl = document.querySelector<HTMLSpanElement>('.player-scores__player--blue .player-scores__points');
+const scoreOrangeEl = document.querySelector<HTMLSpanElement>('.player-scores__player--orange .player-scores__points');
 const currentPlayerIcon = document.querySelector<HTMLImageElement>('.current-player__icon');
+const quitDialog = document.getElementById('quit-dialog') as HTMLDialogElement | null;
+const openButton = document.getElementById('open-quit-dialog') as HTMLButtonElement | null;
+const gameOverDialog = document.getElementById('game-over-dialog') as HTMLDialogElement | null;
+const gameOverScoreBlue = document.querySelector<HTMLSpanElement>('.game-over-dialog__player:first-child .game-over-dialog__points');
+const gameOverScoreOrange = document.querySelector<HTMLSpanElement>('.game-over-dialog__player:last-child .game-over-dialog__points');
+const gameOverWinner = document.querySelector<HTMLParagraphElement>('.game-over-dialog__winner');
 
+
+// ─── Karten Logik ───────────────────────────────
 function handleCardClick(card: HTMLDivElement): void {
   if (gameState.isLocked) return;
   if (card === gameState.firstCard) return;
-
   card.classList.add('is-flipped');
-
   if (!gameState.firstCard) {
     gameState.firstCard = card;
   } else {
@@ -34,26 +41,24 @@ function handleCardClick(card: HTMLDivElement): void {
 }
 
 function checkForMatch(): void {
-  console.log('first:', gameState.firstCard?.dataset.cardId);
-  console.log('second:', gameState.secondCard?.dataset.cardId);
   const isMatch = gameState.firstCard?.dataset.cardId === gameState.secondCard?.dataset.cardId;
-  console.log('isMatch:', isMatch);
   isMatch ? disableCards() : unflipCards();
 }
 
 function disableCards(): void {
   gameState.firstCard?.removeEventListener('click', onCardClick);
   gameState.secondCard?.removeEventListener('click', onCardClick);
+  updateScore();
   resetBoard();
+  checkGameOver();
 }
 
 function unflipCards(): void {
   gameState.isLocked = true;
-  console.log('unflip called');
   setTimeout(() => {
-    console.log('timeout fired');
     gameState.firstCard?.classList.remove('is-flipped');
     gameState.secondCard?.classList.remove('is-flipped');
+    switchPlayer();
     resetBoard();
   }, 1000);
 }
@@ -64,10 +69,57 @@ function resetBoard(): void {
   gameState.isLocked = false;
 }
 
+// ─── Score & Player ─────────────────────────────
+function updateScore(): void {
+  if (gameState.currentPlayer === 'Blue') {
+    gameState.scoreBlue++;
+    if (scoreBlueEl) scoreBlueEl.textContent = String(gameState.scoreBlue);
+  } else {
+    gameState.scoreOrange++;
+    if (scoreOrangeEl) scoreOrangeEl.textContent = String(gameState.scoreOrange);
+  }
+}
+
+function switchPlayer(): void {
+  gameState.currentPlayer = gameState.currentPlayer === 'Blue' ? 'Orange' : 'Blue';
+  updateCurrentPlayerIcon();
+}
+
+function updateCurrentPlayerIcon(): void {
+  if (!currentPlayerIcon) return;
+  currentPlayerIcon.src = gameState.currentPlayer === 'Blue'
+    ? '/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg'
+    : '/assets/img/themes/code-vibe-theme/orange-right-flash-code.svg';
+}
+
+// ─── Game Over ──────────────────────────────────
+function checkGameOver(): void {
+  const allMatched = cards.length === document.querySelectorAll<HTMLDivElement>('.memory-card.is-flipped').length;
+  if (allMatched) showGameOver();
+}
+
+function showGameOver(): void {
+  if (!gameOverDialog || !gameOverScoreBlue || !gameOverScoreOrange || !gameOverWinner) return;
+  gameOverScoreBlue.textContent = String(gameState.scoreBlue);
+  gameOverScoreOrange.textContent = String(gameState.scoreOrange);
+  gameOverWinner.textContent = gameState.scoreBlue > gameState.scoreOrange
+    ? '🏆 Blue wins!'
+    : '🏆 Orange wins!';
+  gameOverDialog.showModal();
+}
+
+// ─── Event Listeners ────────────────────────────
 function onCardClick(this: HTMLDivElement): void {
   handleCardClick(this);
 }
 
-cards.forEach(card => {
-  card.addEventListener('click', onCardClick);
+cards.forEach(card => card.addEventListener('click', onCardClick));
+
+openButton?.addEventListener('click', () => quitDialog?.showModal());
+
+quitDialog?.addEventListener('close', () => {
+  if (quitDialog.returnValue === 'confirm') {
+    window.location.href = '/index.html';
+  }
 });
+
