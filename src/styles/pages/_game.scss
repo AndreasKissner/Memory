@@ -5,6 +5,7 @@
 @use "../components/game/exit-button";
 @use "../components/game/dialog";
 @use "../components/game/game-over-dialog";
+@use "../components/game/winner-dialog";
 
 @use "../abstract/color-variables" as col;
 @use "../abstract/font-varibales" as font;

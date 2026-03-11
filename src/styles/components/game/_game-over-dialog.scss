@@ -1,7 +1,6 @@
-
-
 @use "../../abstract/color-variables" as col;
 @use "../../abstract/font-varibales" as font;
+
 .game-over-dialog {
     width: 100vw;
     height: 100vh;
@@ -10,6 +9,7 @@
     padding: 0;
     background-color: col.$primary-dark;
 }
+
 .game-over-dialog__container {
     width: 100%;
     height: 100%;
@@ -21,16 +21,11 @@
     color: col.$white-standard;
     font-family: font.$red-rose;
 }
-.game-over-dialog__container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    color: col.$white-standard;
-    font-family: font.$red-rose;
+
+.game-over-dialog__img {
+    width: 980px;
+    height: 121px;
+    margin-bottom: 80px;
 }
 
 .game-over-dialog__title {
@@ -40,8 +35,9 @@
 }
 
 .game-over-dialog__subtitle {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 400;
+    font-family: font.$red-rose;
 }
 
 .game-over-dialog__scores {
@@ -49,32 +45,50 @@
     justify-content: center;
     align-items: center;
     gap: 60px;
+    padding:17px 20px;
+    background-color: #86E9D633;
 }
 
 .game-over-dialog__player {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
 .game-over-dialog__icon {
-    width: 60px;
-    height: 60px;
+    width: 24px;
+    height: 20px;
 }
 
 .game-over-dialog__name {
     font-size: 24px;
     font-weight: 700;
+    font-family: font.$red-rose;
 }
 
 .game-over-dialog__points {
-    font-size: 48px;
+    font-size: 24px;
     font-weight: 700;
+    font-family: font.$red-rose;
 }
+
 .game-over-dialog__winner {
     font-size: 32px;
     font-weight: 700;
 }
 
+//
+@keyframes slideDown {
+  from {
+    transform: translateY(-100vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.game-over-dialog[open] {
+  animation: slideDown 0.6s ease forwards;
+}

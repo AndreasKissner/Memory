@@ -21,10 +21,16 @@ const scoreOrangeEl = document.querySelector<HTMLSpanElement>('.player-scores__p
 const currentPlayerIcon = document.querySelector<HTMLImageElement>('.current-player__icon');
 const quitDialog = document.getElementById('quit-dialog') as HTMLDialogElement | null;
 const openButton = document.getElementById('open-quit-dialog') as HTMLButtonElement | null;
+
 const gameOverDialog = document.getElementById('game-over-dialog') as HTMLDialogElement | null;
 const gameOverScoreBlue = document.querySelector<HTMLSpanElement>('.game-over-dialog__player:first-child .game-over-dialog__points');
 const gameOverScoreOrange = document.querySelector<HTMLSpanElement>('.game-over-dialog__player:last-child .game-over-dialog__points');
 const gameOverWinner = document.querySelector<HTMLParagraphElement>('.game-over-dialog__winner');
+
+const winnerDialog = document.getElementById('winner-dialog') as HTMLDialogElement | null;
+const winnerName = document.querySelector<HTMLHeadingElement>('.winner-dialog__name');
+const winnerIcon = document.querySelector<HTMLImageElement>('.winner-dialog__icon');
+const backToStartBtn = document.querySelector<HTMLButtonElement>('.winner-dialog__btn');
 
 
 // ─── Karten Logik ───────────────────────────────
@@ -105,7 +111,11 @@ function showGameOver(): void {
   gameOverWinner.textContent = gameState.scoreBlue > gameState.scoreOrange
     ? '🏆 Blue wins!'
     : '🏆 Orange wins!';
-  gameOverDialog.showModal();
+  setTimeout(() => {
+    gameOverDialog.showModal();
+    showWinner();
+  }, 2000);
+
 }
 
 // ─── Event Listeners ────────────────────────────
@@ -123,3 +133,23 @@ quitDialog?.addEventListener('close', () => {
   }
 });
 
+// Winner dialog
+
+function showWinner(): void {
+  if (!winnerDialog || !winnerName || !winnerIcon) return;
+
+  const blueWins = gameState.scoreBlue > gameState.scoreOrange;
+
+  winnerName.textContent = blueWins ? 'Blue Player' : 'Orange Player';
+  winnerIcon.src = blueWins
+    ? '/assets/img/themes/code-vibe-theme/chess-blue.svg'
+    : '/assets/img/themes/code-vibe-theme/chess-orange.svg';
+
+  setTimeout(() => {
+    winnerDialog.showModal();
+  }, 2000);
+}
+
+backToStartBtn?.addEventListener('click', () => {
+  window.location.href = '/index.html';
+});
