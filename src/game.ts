@@ -10,9 +10,6 @@ import { createCardTemplate } from "./templates/card-template";
 const savedSettings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
 const themeFolder = savedSettings.folder || 'code-vibes';
 
-console.log('themeFolder:', themeFolder);
-console.log('savedSettings:', savedSettings);
-
 // ─── State ──────────────────────────────────────
 const gameState: GameState = {
   firstCard: null,
@@ -37,25 +34,44 @@ const winnerName = document.querySelector<HTMLHeadingElement>('.winner-dialog__n
 const winnerIcon = document.querySelector<HTMLImageElement>('.winner-dialog__icon');
 const backToStartBtn = document.querySelector<HTMLButtonElement>('.winner-dialog__btn');
 
-// ─── Karten generieren ──────────────────────────
+// ─── Hilfsfunktionen ────────────────────────────
+function getPairsFromBoardSize(boardSize: string): number {
+  if (boardSize === '16 Cards') return 8;
+  if (boardSize === '24 Cards') return 12;
+  if (boardSize === '36 Cards') return 18;
+  return 8;
+}
+
+function updateGridLayout(boardSize: string): void {
+  const cardsGrid = document.querySelector<HTMLElement>('.cards-grid');
+  if (!cardsGrid) return;
+  if (boardSize === '16 Cards') {
+    cardsGrid.style.width = '555px';
+    cardsGrid.style.gridTemplateColumns = 'repeat(4, 120px)';
+    cardsGrid.style.gap = '15px';
+  } else if (boardSize === '24 Cards') {
+    cardsGrid.style.width = '750px';
+    cardsGrid.style.gridTemplateColumns = 'repeat(6, 110px)';
+    cardsGrid.style.gap = '15px';
+} else if (boardSize === '36 Cards') {
+    cardsGrid.style.width = '1060px';
+    cardsGrid.style.gridTemplateColumns = 'repeat(9, 110px)';
+    cardsGrid.style.gap = '15px';
+    cardsGrid.style.marginRight = '60px';
+  }
+}
+
 function generateCards(folder: string): void {
   const cardsGrid = document.querySelector<HTMLElement>('.cards-grid');
   if (!cardsGrid) return;
-    console.log('cardsGrid gefunden:', cardsGrid);
-  console.log('folder:', folder);
-  const pairs = 8;
+  const pairs = getPairsFromBoardSize(savedSettings.boardSize);
   let html = '';
   for (let i = 1; i <= pairs; i++) {
     html += createCardTemplate(i, folder);
     html += createCardTemplate(i, folder);
   }
-  console.log('html:', html);
   cardsGrid.innerHTML = html;
 }
-
-generateCards(themeFolder);
-
-const cards = document.querySelectorAll<HTMLDivElement>(".memory-card");
 
 // ─── Karten Logik ───────────────────────────────
 function handleCardClick(card: HTMLDivElement): void {
@@ -124,7 +140,8 @@ function updateCurrentPlayerIcon(): void {
 
 // ─── Game Over ──────────────────────────────────
 function checkGameOver(): void {
-  const allMatched = cards.length === document.querySelectorAll<HTMLDivElement>('.memory-card.is-flipped').length;
+  const allCards = document.querySelectorAll<HTMLDivElement>('.memory-card');
+  const allMatched = allCards.length === document.querySelectorAll<HTMLDivElement>('.memory-card.is-flipped').length;
   if (allMatched) showGameOver();
 }
 
@@ -158,6 +175,10 @@ function onCardClick(this: HTMLDivElement): void {
   handleCardClick(this);
 }
 
+generateCards(themeFolder);
+updateGridLayout(savedSettings.boardSize);
+
+const cards = document.querySelectorAll<HTMLDivElement>(".memory-card");
 cards.forEach(card => card.addEventListener('click', onCardClick));
 openButton?.addEventListener('click', () => quitDialog?.showModal());
 quitDialog?.addEventListener('close', () => {

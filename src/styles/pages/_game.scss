@@ -75,12 +75,11 @@ body {
 
 
 .cards-grid {
-    width: 530px;
     height: 530px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     align-self: center;
     margin-top: auto;
     margin-bottom: 20px;
+    margin-right: 60px;
 }
