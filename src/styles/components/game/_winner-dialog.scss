@@ -37,9 +37,16 @@
 .winner-dialog__name {
     font-size: 60px;
     font-weight: 700;
-    color: #F5A623;
     text-transform: uppercase;
     font-family: font.$red-rose;
+
+    &--blue {
+        color: #2BB1FF;
+    }
+
+    &--orange {
+        color: #F58E39;
+    }
 }
 
 .winner-dialog__icon {

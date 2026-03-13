@@ -13,7 +13,8 @@ const selectionState: SelectionState = {
   size: false,
   themeId: '',
   playerColor: '',
-  boardSize: ''
+  boardSize: '',
+  folder :''
 };
 
 const themeImage = document.querySelector<HTMLImageElement>('.theme-preview__image');
@@ -119,10 +120,10 @@ function saveCurrentSettings(): void {
   saveSettings({
     themeId: selectionState.themeId,
     playerColor: selectionState.playerColor,
-    boardSize: selectionState.boardSize
+    boardSize: selectionState.boardSize,
+    folder: selectionState.folder
   });
 }
-
 /**
  * Updates the UI and selection state based on the chosen theme.
  * @param themeId - The unique identifier of the selected theme.
@@ -130,11 +131,13 @@ function saveCurrentSettings(): void {
  */
 function handleThemeSelection(themeId: string, themes: Theme[]): void {
   const selectedTheme = themes.find(theme => theme.id === themeId);
+
   if (selectedTheme && themeImage && themeNameSpan) {
-    themeImage.src = `${import.meta.env.BASE_URL}${selectedTheme.img}`;
+    themeImage.src = selectedTheme.img;
     themeNameSpan.textContent = selectedTheme.name;
     selectionState.theme = true;
     selectionState.themeId = themeId;
+    selectionState.folder = selectedTheme.folder;
     checkAllSelected();
   }
 }

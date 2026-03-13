@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
 import "./styles/pages/_game.scss";
 import type { GameState } from "./interface-game";
 
+const savedSettings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
+const themeFolder = savedSettings.folder || 'code-vibes';
+
 const gameState: GameState = {
   firstCard: null,
   secondCard: null,
@@ -104,18 +107,16 @@ function checkGameOver(): void {
   if (allMatched) showGameOver();
 }
 
+
+//QUit game dialog
 function showGameOver(): void {
-  if (!gameOverDialog || !gameOverScoreBlue || !gameOverScoreOrange || !gameOverWinner) return;
+  if (!gameOverDialog || !gameOverScoreBlue || !gameOverScoreOrange) return;
   gameOverScoreBlue.textContent = String(gameState.scoreBlue);
   gameOverScoreOrange.textContent = String(gameState.scoreOrange);
-  gameOverWinner.textContent = gameState.scoreBlue > gameState.scoreOrange
-    ? '🏆 Blue wins!'
-    : '🏆 Orange wins!';
   setTimeout(() => {
     gameOverDialog.showModal();
     showWinner();
   }, 2000);
-
 }
 
 // ─── Event Listeners ────────────────────────────
@@ -129,27 +130,27 @@ openButton?.addEventListener('click', () => quitDialog?.showModal());
 
 quitDialog?.addEventListener('close', () => {
   if (quitDialog.returnValue === 'confirm') {
-    window.location.href = '/index.html';
+    window.location.href = '/pages_html/settings.html';
   }
 });
+
 
 // Winner dialog
 
 function showWinner(): void {
   if (!winnerDialog || !winnerName || !winnerIcon) return;
-
   const blueWins = gameState.scoreBlue > gameState.scoreOrange;
-
   winnerName.textContent = blueWins ? 'Blue Player' : 'Orange Player';
+  winnerName.classList.remove('winner-dialog__name--blue', 'winner-dialog__name--orange');
+  winnerName.classList.add(blueWins ? 'winner-dialog__name--blue' : 'winner-dialog__name--orange');
   winnerIcon.src = blueWins
     ? '/assets/img/themes/code-vibe-theme/chess-blue.svg'
     : '/assets/img/themes/code-vibe-theme/chess-orange.svg';
-
   setTimeout(() => {
     winnerDialog.showModal();
   }, 2000);
 }
 
 backToStartBtn?.addEventListener('click', () => {
-  window.location.href = '/index.html';
+  window.location.href = '/pages_html/settings.html';
 });

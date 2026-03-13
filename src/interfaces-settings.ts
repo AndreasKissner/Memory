@@ -2,6 +2,7 @@ export interface Theme {
   id: string;
   name: string;
   img: string;
+  folder: string;
 }
 
 export interface SettingsData {
@@ -15,9 +16,11 @@ export interface SelectionState {
   themeId: string;
   playerColor: string;
   boardSize: string;
+  folder:string
 }
 export interface SavedSettings {
   themeId: string;
   playerColor: string;
   boardSize: string;
+  folder:string;
 }
