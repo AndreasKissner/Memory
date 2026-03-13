@@ -4,10 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 import "./styles/pages/_game.scss";
 import type { GameState } from "./interface-game";
+import { createCardTemplate } from "./templates/card-template";
 
+// ─── Settings aus localStorage ──────────────────
 const savedSettings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
 const themeFolder = savedSettings.folder || 'code-vibes';
 
+console.log('themeFolder:', themeFolder);
+console.log('savedSettings:', savedSettings);
+
+// ─── State ──────────────────────────────────────
 const gameState: GameState = {
   firstCard: null,
   secondCard: null,
@@ -18,23 +24,38 @@ const gameState: GameState = {
 };
 
 // ─── DOM Elemente ───────────────────────────────
-const cards = document.querySelectorAll<HTMLDivElement>(".memory-card");
 const scoreBlueEl = document.querySelector<HTMLSpanElement>('.player-scores__player--blue .player-scores__points');
 const scoreOrangeEl = document.querySelector<HTMLSpanElement>('.player-scores__player--orange .player-scores__points');
 const currentPlayerIcon = document.querySelector<HTMLImageElement>('.current-player__icon');
 const quitDialog = document.getElementById('quit-dialog') as HTMLDialogElement | null;
 const openButton = document.getElementById('open-quit-dialog') as HTMLButtonElement | null;
-
 const gameOverDialog = document.getElementById('game-over-dialog') as HTMLDialogElement | null;
 const gameOverScoreBlue = document.querySelector<HTMLSpanElement>('.game-over-dialog__player:first-child .game-over-dialog__points');
 const gameOverScoreOrange = document.querySelector<HTMLSpanElement>('.game-over-dialog__player:last-child .game-over-dialog__points');
-const gameOverWinner = document.querySelector<HTMLParagraphElement>('.game-over-dialog__winner');
-
 const winnerDialog = document.getElementById('winner-dialog') as HTMLDialogElement | null;
 const winnerName = document.querySelector<HTMLHeadingElement>('.winner-dialog__name');
 const winnerIcon = document.querySelector<HTMLImageElement>('.winner-dialog__icon');
 const backToStartBtn = document.querySelector<HTMLButtonElement>('.winner-dialog__btn');
 
+// ─── Karten generieren ──────────────────────────
+function generateCards(folder: string): void {
+  const cardsGrid = document.querySelector<HTMLElement>('.cards-grid');
+  if (!cardsGrid) return;
+    console.log('cardsGrid gefunden:', cardsGrid);
+  console.log('folder:', folder);
+  const pairs = 8;
+  let html = '';
+  for (let i = 1; i <= pairs; i++) {
+    html += createCardTemplate(i, folder);
+    html += createCardTemplate(i, folder);
+  }
+  console.log('html:', html);
+  cardsGrid.innerHTML = html;
+}
+
+generateCards(themeFolder);
+
+const cards = document.querySelectorAll<HTMLDivElement>(".memory-card");
 
 // ─── Karten Logik ───────────────────────────────
 function handleCardClick(card: HTMLDivElement): void {
@@ -107,8 +128,6 @@ function checkGameOver(): void {
   if (allMatched) showGameOver();
 }
 
-
-//QUit game dialog
 function showGameOver(): void {
   if (!gameOverDialog || !gameOverScoreBlue || !gameOverScoreOrange) return;
   gameOverScoreBlue.textContent = String(gameState.scoreBlue);
@@ -119,24 +138,7 @@ function showGameOver(): void {
   }, 2000);
 }
 
-// ─── Event Listeners ────────────────────────────
-function onCardClick(this: HTMLDivElement): void {
-  handleCardClick(this);
-}
-
-cards.forEach(card => card.addEventListener('click', onCardClick));
-
-openButton?.addEventListener('click', () => quitDialog?.showModal());
-
-quitDialog?.addEventListener('close', () => {
-  if (quitDialog.returnValue === 'confirm') {
-    window.location.href = '/pages_html/settings.html';
-  }
-});
-
-
-// Winner dialog
-
+// ─── Winner ─────────────────────────────────────
 function showWinner(): void {
   if (!winnerDialog || !winnerName || !winnerIcon) return;
   const blueWins = gameState.scoreBlue > gameState.scoreOrange;
@@ -151,6 +153,18 @@ function showWinner(): void {
   }, 2000);
 }
 
+// ─── Event Listeners ────────────────────────────
+function onCardClick(this: HTMLDivElement): void {
+  handleCardClick(this);
+}
+
+cards.forEach(card => card.addEventListener('click', onCardClick));
+openButton?.addEventListener('click', () => quitDialog?.showModal());
+quitDialog?.addEventListener('close', () => {
+  if (quitDialog.returnValue === 'confirm') {
+    window.location.href = '/pages_html/settings.html';
+  }
+});
 backToStartBtn?.addEventListener('click', () => {
   window.location.href = '/pages_html/settings.html';
 });

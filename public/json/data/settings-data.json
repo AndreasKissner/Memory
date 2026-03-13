@@ -1,7 +1,7 @@
 {
   "themes": [
     { "id": "theme-1", "name": "Code Vibes", "img": "/assets/img/settings/theme-img1.svg", "folder": "code-vibes" },
-    { "id": "theme-2", "name": "Gaming", "img": "/assets/img/settings/theme-img2.svg", "folder": "gaming" },
+    { "id": "theme-2", "name": "Gaming", "img": "/assets/img/settings/theme-img2.svg", "folder": "gaming-theme" },
     { "id": "theme-3", "name": "DA Projects", "img": "/assets/img/settings/theme-img3.svg", "folder": "da-theme" },
     { "id": "theme-4", "name": "Foods", "img": "/assets/img/settings/theme-img4.svg", "folder": "foods-theme" }
   ]
