@@ -13,6 +13,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Arbitron';
+  src: url('/assets/fonts/orbitron-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 
 $almarai: 'Almarai', sans-serif;
 $red-rose: 'Redrose', sans-serif;
+$orbitron: 'Arbitron', sans-serif;

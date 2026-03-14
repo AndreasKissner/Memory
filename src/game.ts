@@ -5,10 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 import "./styles/pages/_game.scss";
 import type { GameState } from "./interface-game";
 import { createCardTemplate } from "./templates/card-template";
+import { loadThemeImages } from "./img-theme-loader";
 
 // ─── Settings aus localStorage ──────────────────
 const savedSettings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
-const themeFolder = savedSettings.folder || 'code-vibes';
+const themeFolder = savedSettings.folder || 'code-vibe-theme';
+
+document.body.dataset.theme = themeFolder;
+loadThemeImages(themeFolder);
 
 // ─── State ──────────────────────────────────────
 const gameState: GameState = {
@@ -53,7 +57,7 @@ function updateGridLayout(boardSize: string): void {
     cardsGrid.style.width = '750px';
     cardsGrid.style.gridTemplateColumns = 'repeat(6, 110px)';
     cardsGrid.style.gap = '15px';
-} else if (boardSize === '36 Cards') {
+  } else if (boardSize === '36 Cards') {
     cardsGrid.style.width = '1060px';
     cardsGrid.style.gridTemplateColumns = 'repeat(9, 110px)';
     cardsGrid.style.gap = '15px';
@@ -71,6 +75,8 @@ function generateCards(folder: string): void {
     html += createCardTemplate(i, folder);
   }
   cardsGrid.innerHTML = html;
+  console.log('generateCards aufgerufen mit folder:', folder);
+  console.log('pairs:', getPairsFromBoardSize(savedSettings.boardSize));
 }
 
 // ─── Karten Logik ───────────────────────────────
@@ -134,8 +140,8 @@ function switchPlayer(): void {
 function updateCurrentPlayerIcon(): void {
   if (!currentPlayerIcon) return;
   currentPlayerIcon.src = gameState.currentPlayer === 'Blue'
-    ? '/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg'
-    : '/assets/img/themes/code-vibe-theme/orange-right-flash-code.svg';
+    ? `/assets/img/themes/${themeFolder}/current-player-blue.svg`
+    : `/assets/img/themes/${themeFolder}/current-player-orange.svg`;
 }
 
 // ─── Game Over ──────────────────────────────────
@@ -186,6 +192,7 @@ quitDialog?.addEventListener('close', () => {
     window.location.href = '/pages_html/settings.html';
   }
 });
+
 backToStartBtn?.addEventListener('click', () => {
   window.location.href = '/pages_html/settings.html';
 });
