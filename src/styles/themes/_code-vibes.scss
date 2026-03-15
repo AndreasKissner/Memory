@@ -1,6 +1,44 @@
+@use "../abstract/color-variables" as col;
+@use "../abstract/font-varibales" as font;
+@use "../abstract/mixins/mixins-standard" as flex;
+
 [data-theme="code-vibe-theme"] {
     --body-bg: #294F60;
+}
+
+[data-theme="code-vibe-theme"] .game-header {
+    --bgColor-header: transparent;
+    --gameHeader-navHeight: 100%;
+
+}
+
+[data-theme="code-vibe-theme"] .player-scores {
+    --playerScore-width: 300px;
+    --playerScore-height: 100%;
     --playerScore-bg: #86E9D633;
     --playerBlue-color: #2BB1FF;
     --playerOrange-color: #F58E39;
+    --playerScore-points: 24px;
+
+}
+
+[data-theme="code-vibe-theme"] .current-player {
+    --currentPlayer-label-font: #{font.$red-rose};
+    --curenntPlayer-label-fontSize: 26px;
+
+}
+
+[data-theme="code-vibe-theme"] .cards-grid {
+    --grid-gap: ;
+}
+
+//1.diaolog
+[data-theme="code-vibe-theme"] .quit-dialog {
+    --dialog1-bg: #{col.$white-standard};
+}
+
+//exit Button
+[data-theme="code-vibe-theme"] .exit-game {
+    --exitGame-bg: #86E9D633;
+    --exitBtn-border: 1px solid #4DD5BC;
 }

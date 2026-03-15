@@ -1,9 +1,44 @@
+@use "../abstract/color-variables" as col;
+@use "../abstract/font-varibales" as font;
+@use "../abstract/mixins/mixins-standard" as flex;
 
-[data-theme="gaming-theme"] {
+[data-theme="gaming-theme"] body {
     --body-bg: #294F60;
-    --gameHeader-bg: #FD96C933;
+}
+
+[data-theme="gaming-theme"] .game-header {
+    --bgColor-header: #FD96C933;
+    --padding-headerNav: 0 25px;
+    --gameHeader-borderRadius: 10px;
+    --gameHeader-navHeight: 102px;
+}
+
+[data-theme="gaming-theme"] .player-scores {
+    --playerScore-width: 135px;
+    --playerScore-height: 55px;
+    --playerScore-radius: 10px;
+    --playerScore-points: 26px;
+    --playerNameNone: none;
     --playerScore-bg: white;
-    --playerBlue-color:#EA6900;
-    --playerOrange-color:#2BB1FF;
-    --playerScore-radius:10px;
+    --playerOrange-color: #EA6900;
+    --playerBlue-color: #2BB1FF;
+
+}
+
+[data-theme="gaming-theme"] .current-player {
+    --currentPalyer-alignSelf: center;
+    --currentPlayer-label-font: #{font.$orbitron};
+    --curenntPlayer-label-fontSize: 32px;
+
+
+}
+
+
+
+
+//exit Button
+[data-theme="gaming-theme"] .exit-game {
+    --exitGame-bg: #ED1B7614;
+    --exitBtn-border: 2px solid #ED1B76;
+
 }

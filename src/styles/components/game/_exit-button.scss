@@ -3,10 +3,11 @@
 @use "../../abstract/mixins/mixins-standard" as flex;
 
 .exit-game {
-    background-color: #86E9D633;
+    background-color: var(--exitGame-bg);
     width: 210px;
+
     height: 65px;
-    border: 1px solid #4DD5BC; // border-color allein reicht oft nicht ohne border-style
+    border: var(--exitBtn-border);
     font-size: 24px;
     font-weight: 700;
     font-family: font.$red-rose;
@@ -15,7 +16,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    cursor: pointer; // Wichtig für die UX
+    cursor: pointer;
     border-radius: 4px;
 
     &__icon {

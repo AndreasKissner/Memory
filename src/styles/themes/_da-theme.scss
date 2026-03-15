@@ -1,9 +1,15 @@
-
-[data-theme="da-theme"] {
+[data-theme="da-theme"] body {
     --body-bg: #294F60;
+}
+
+[data-theme="code-vibe-theme"].game-header {
+    --gameHeader-bg: #FD96C933;
+}
+
+[data-theme="code-vibe-theme"].player-score {
     --gameHeader-bg: #FD96C933;
     --playerScore-bg: white;
-    --playerBlue-color:#EA6900;
-    --playerOrange-color:#2BB1FF;
-    --playerScore-radius:10px;
+    --playerBlue-color: #EA6900;
+    --playerOrange-color: #2BB1FF;
+    --playerScore-radius: 10px;
 }
