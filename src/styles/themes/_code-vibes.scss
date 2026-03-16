@@ -19,6 +19,7 @@
     --playerBlue-color: #2BB1FF;
     --playerOrange-color: #F58E39;
     --playerScore-points: 24px;
+    --currentPlayer-label-font: #{font.$red-rose};
 
 }
 
@@ -41,4 +42,6 @@
 [data-theme="code-vibe-theme"] .exit-game {
     --exitGame-bg: #86E9D633;
     --exitBtn-border: 1px solid #4DD5BC;
+    --currentPlayer-label-font: #{font.$red-rose};
+  
 }

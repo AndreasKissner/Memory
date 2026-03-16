@@ -1,8 +1,9 @@
 @use "../abstract/color-variables" as col;
 @use "../abstract/font-varibales" as font;
 @use "../abstract/mixins/mixins-standard" as flex;
+@use "../abstract/font-varibales";
 
-[data-theme="gaming-theme"] body {
+[data-theme="gaming-theme"] {
     --body-bg: #294F60;
 }
 
@@ -22,23 +23,29 @@
     --playerScore-bg: white;
     --playerOrange-color: #EA6900;
     --playerBlue-color: #2BB1FF;
+    --currentPlayer-label-font: #{font.$orbitron};
+}
 
+[data-theme="gaming-theme"] .player-scores__icon {
+    --playerScore-iconHeight: 24px;
 }
 
 [data-theme="gaming-theme"] .current-player {
     --currentPalyer-alignSelf: center;
     --currentPlayer-label-font: #{font.$orbitron};
     --curenntPlayer-label-fontSize: 32px;
-
-
 }
 
-
+[data-theme="gaming-theme"] .quit-dialog {
+    --dialog1-bg: #{col.$white-standard};
+    --quitDialog-border: 20px;
+}
 
 
 //exit Button
 [data-theme="gaming-theme"] .exit-game {
     --exitGame-bg: #ED1B7614;
     --exitBtn-border: 2px solid #ED1B76;
+    --currentPlayer-label-font: #{font.$orbitron};
 
 }

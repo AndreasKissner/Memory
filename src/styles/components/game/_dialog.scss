@@ -2,12 +2,9 @@
 @use "../../abstract/font-varibales" as font;
 
 .quit-dialog {
-    border: none;
+    border-radius: var(--quitDialog-border);
     padding: 0;
-
-    background-color: col.$white-standard;
     background-color: var(--dialog1-bg);
-    /* background-color: white; */
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     max-width: 550px;
     width: 90%;

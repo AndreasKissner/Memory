@@ -13,7 +13,7 @@
 @use "../abstract/color-variables" as col;
 @use "../abstract/font-varibales" as font;
 @use "../abstract/mixins/mixins-standard" as flex;
-
+@use "../abstract/font-varibales";
 
 body {
     background-color: var(--body-bg);
@@ -62,8 +62,8 @@ body {
     justify-content: center;
     align-items: center;
     font-weight: 700;
-    font-family: font.$red-rose;
     gap: 20px;
+    font-family: var(--currentPlayer-label-font);
     background-color: var(--playerScore-bg);
     border-radius: var(--playerScore-radius);
 
@@ -77,7 +77,7 @@ body {
 
     &__icon {
         width: 24px;
-        height: 20px;
+        height: var(--playerScore-iconHeight)
     }
 
     &__points {
@@ -87,14 +87,14 @@ body {
     &__name {
         display: var(--playerNameNone);
         font-size: 24px;
-      
+
     }
 
 }
 
 .current-player {
     align-self: flex-end;
-    align-self:var(--currentPalyer-alignSelf);
+    align-self: var(--currentPalyer-alignSelf);
     display: flex;
     justify-content: center;
     align-items: center;
