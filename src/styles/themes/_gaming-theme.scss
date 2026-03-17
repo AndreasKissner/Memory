@@ -47,5 +47,19 @@
     --exitGame-bg: #ED1B7614;
     --exitBtn-border: 2px solid #ED1B76;
     --currentPlayer-label-font: #{font.$orbitron};
+}
+
+[data-theme="gaming-theme"] .quit-dialog__title{
+  --dialog1-font: #{font.$orbitron};
+}
+
+[data-theme="gaming-theme"] .quit-dialog__button {
+    --dialog1BackBtn-border: 10px;
+    --dialog1BackBtn-BorderColor: 2px solid #E71C4F;
+
+}
+
+[data-theme="gaming-theme"] .quit-dialog__button--primary {
+    --dialog1BackBtn-bg: #ED1B76;
 
 }
