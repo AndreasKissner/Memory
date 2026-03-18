@@ -39,13 +39,12 @@
 
                 <section class="current-player">
                     <span class="current-player__label">Current player :</span>
-                    <img class="current-player__icon" id="current-player-icon" src="/assets/img/themes/code-vibe-theme/current-player-blue.svg"
-                        alt="">
+                    <img class="current-player__icon" id="current-player-icon"
+                        src="/assets/img/themes/code-vibe-theme/current-player-blue.svg" alt="">
                 </section>
 
                 <button id="open-quit-dialog" class="exit-game" aria-haspopup="dialog">
-                    <img class="exit-game__icon" src="/assets/img/themes/code-vibe-theme/exit-code-vibe.svg" alt=""
-                        aria-hidden="true">
+                    <span class="exit-game__icon" aria-hidden="true"></span>
                     <span class="exit-game__text">Exit game</span>
                 </button>
             </nav>
@@ -65,65 +64,65 @@
 
             <div class="quit-dialog__actions">
                 <button type="submit" value="cancel" class="quit-dialog__button quit-dialog__button--primary">
-                    Back to game
+                    No, Back to game
                 </button>
+                
                 <button type="submit" value="confirm" class="quit-dialog__button quit-dialog__button--secondary">
-                    Exit game
+                    Yes, quite game
                 </button>
             </div>
         </form>
     </dialog>
 
-   
+
     <!-- Game over diaolg -->
 
-<dialog id="game-over-dialog" class="game-over-dialog">
-    <div class="game-over-dialog__container">
-        
-        <img class="game-over-dialog__img" src="/assets/img/game-over/game_over.svg" alt="Game Over Image">
-        
-        <p class="game-over-dialog__subtitle">Final Score</p>
-        
-        <div class="game-over-dialog__scores">
-            
-            <div class="game-over-dialog__player">
-                <img src="/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg" 
-                     alt="" class="game-over-dialog__icon">
-                <span class="game-over-dialog__name">Blue</span>
-                <span class="game-over-dialog__points">0</span>
-            </div>
+    <dialog id="game-over-dialog" class="game-over-dialog">
+        <div class="game-over-dialog__container">
 
-            <div class="game-over-dialog__player">
-                <img src="/assets/img/themes/code-vibe-theme/orange-right-flash-code.svg" 
-                     alt="" class="game-over-dialog__icon">
-                <span class="game-over-dialog__name">Orange</span>
-                <span class="game-over-dialog__points">0</span>
+            <img class="game-over-dialog__img" src="/assets/img/game-over/game_over.svg" alt="Game Over Image">
+
+            <p class="game-over-dialog__subtitle">Final Score</p>
+
+            <div class="game-over-dialog__scores">
+
+                <div class="game-over-dialog__player">
+                    <img src="/assets/img/themes/code-vibe-theme/blue-right-flash-code.svg" alt=""
+                        class="game-over-dialog__icon">
+                    <span class="game-over-dialog__name">Blue</span>
+                    <span class="game-over-dialog__points">0</span>
+                </div>
+
+                <div class="game-over-dialog__player">
+                    <img src="/assets/img/themes/code-vibe-theme/orange-right-flash-code.svg" alt=""
+                        class="game-over-dialog__icon">
+                    <span class="game-over-dialog__name">Orange</span>
+                    <span class="game-over-dialog__points">0</span>
+                </div>
+
             </div>
 
         </div>
+    </dialog>
 
-    </div>
-</dialog>
+    <!-- dialog WInner is -->
 
-<!-- dialog WInner is -->
+    <dialog id="winner-dialog" class="winner-dialog">
+        <div class="winner-dialog__container">
 
-<dialog id="winner-dialog" class="winner-dialog">
-    <div class="winner-dialog__container">
-        
-        <img src="/assets/img/themes/code-vibe-theme/confetti.svg" 
-             alt="" class="winner-dialog__confetti">
-        
-        <p class="winner-dialog__subtitle">The winner is</p>
-        
-        <h1 class="winner-dialog__name">Orange Player</h1>
-        
-        <img src="/assets/img/themes/code-vibe-theme/orange-right-flash-code.svg" 
-             alt="" class="winner-dialog__icon">
-        
-        <button class="winner-dialog__btn">Back to start</button>
+            <img src="/assets/img/themes/code-vibe-theme/confetti.svg" alt="" class="winner-dialog__confetti">
 
-    </div>
-</dialog>
+            <p class="winner-dialog__subtitle">The winner is</p>
+
+            <h1 class="winner-dialog__name">Orange Player</h1>
+
+            <img src="/assets/img/themes/code-vibe-theme/orange-right-flash-code.svg" alt=""
+                class="winner-dialog__icon">
+
+            <button class="winner-dialog__btn">Back to start</button>
+
+        </div>
+    </dialog>
 
 </body>
 

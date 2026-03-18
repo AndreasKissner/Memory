@@ -58,9 +58,13 @@
         font-family: var(--dialog1-font);
         font-size: 32px;
         font-weight: 700;
-        color: #333333;
+        color: var(--quitDialog-textColor, #333333);
         margin: 0 0 40px 0;
         line-height: 1.2;
+
+        &:hover {
+            color: var(--quitDialog-textHover, #333333);
+        }
     }
 
     &__actions {
@@ -77,25 +81,24 @@
         padding: 15px 30px;
         border-radius: var(--dialog1BackBtn-border);
         box-sizing: border-box;
-        border:var(--dialog1BackBtn-BorderColor);
+        border: var(--dialog1BackBtn-BorderColor);
         min-width: 180px;
-    
 
         &:active {
             transform: scale(0.96);
         }
 
-        &--primary {
-            background-color: var(--dialog1BackBtn-bg);
-            color: col.$white-standard;
+      &--primary {
+    background-color: var(--dialog1BackBtn-bg);
+    color: col.$white-standard;
+    border: var(--quitDialog-btnPrimary);
 
-            &:hover {
-              
-                 background-color: var(--dialog1BackBtn-bgHover);
-                border: var(--dialog1BackBtn-BorderHover);
-              
-            }
-        }
+    &:hover {
+        background-color: var(--dialog1BackBtn-bgHover);
+        border: var(--dialog1BackBtn-BorderHover);
+        color: var(--dialog1BackBtn-colorHover, col.$white-standard);
+    }
+}
 
         &--secondary {
             background-color: transparent;
@@ -103,7 +106,7 @@
 
             &:hover {
                 background-color: #4dd5bc23;
-                  border: 4px solid  #4DD5BC;
+                border: 4px solid #4DD5BC;
             }
         }
     }

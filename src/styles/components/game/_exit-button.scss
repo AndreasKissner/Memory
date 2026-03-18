@@ -5,9 +5,9 @@
 .exit-game {
     background-color: var(--exitGame-bg);
     width: 210px;
-
     height: 65px;
     border: var(--exitBtn-border);
+    border-radius: var(--exitBtn-borderRadius);
     font-size: 24px;
     font-weight: 700;
     font-family: font.$red-rose;
@@ -17,13 +17,23 @@
     align-items: center;
     gap: 15px;
     cursor: pointer;
-    border-radius: 4px;
+   
+    transition: all 0.15s ease-in-out;
 
-    &__icon {
-        width: 32px;
-        height: 32px;
-        flex-shrink: 0;
-    }
+  &:hover {
+    border: var(--exitGame-hoverBorder);
+}
+
+   &__icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: inline-block;
+    background-image: var(--exitIcon-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
     &__text {
         pointer-events: none;

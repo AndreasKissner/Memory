@@ -46,12 +46,24 @@
 [data-theme="gaming-theme"] .exit-game {
     --exitGame-bg: #ED1B7614;
     --exitBtn-border: 2px solid #ED1B76;
+    --exitBtn-borderRadius: 10px;
     --currentPlayer-label-font: #{font.$orbitron};
+    --exitIcon-url: url('/assets/img/themes/code-vibe-theme/exit-code-vibe.svg');
 }
 
-[data-theme="gaming-theme"] .quit-dialog__title{
-  --dialog1-font: #{font.$orbitron};
+[data-theme="gaming-theme"] .exit-game:hover {
+    --exitGame-hoverBorder: 4px solid #ED1B76;
+    --exitIcon-url: url('/assets/img/themes/gaming-theme/exit-icon-rose.svg');
 }
+
+
+
+[data-theme="gaming-theme"] .quit-dialog__title {
+    --dialog1-font: #{font.$orbitron};
+    --quitDialog-textColor: #333333;
+ 
+}
+
 
 [data-theme="gaming-theme"] .quit-dialog__button {
     --dialog1BackBtn-border: 10px;
@@ -61,5 +73,11 @@
 
 [data-theme="gaming-theme"] .quit-dialog__button--primary {
     --dialog1BackBtn-bg: #ED1B76;
+    --quitDialog-btnPrimary:2px solid #E71C4F;
+}
 
+[data-theme="gaming-theme"] .quit-dialog__button--primary:hover {
+    --dialog1BackBtn-bgHover: #ffffff;
+    --dialog1BackBtn-BorderHover: 4px solid #E71C4F;
+    --dialog1BackBtn-colorHover: #E71C4F;
 }

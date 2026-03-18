@@ -3,7 +3,7 @@
 @use "../abstract/mixins/mixins-standard" as flex;
 
 [data-theme="code-vibe-theme"] {
-    --body-bg: #294F60;
+    --body-bg: #303131;
 }
 
 [data-theme="code-vibe-theme"] .game-header {
@@ -62,5 +62,10 @@
     --exitGame-bg: #86E9D633;
     --exitBtn-border: 1px solid #4DD5BC;
     --currentPlayer-label-font: #{font.$red-rose};
+    --exitIcon-url: url('/assets/img/themes/code-vibe-theme/exit-code-vibe.svg');
+}
 
+[data-theme="code-vibe-theme"] .exit-game:hover {
+   --exitGame-hoverBorder: 4px solid #4DD5BC;
+   --exitIcon-url: url('/assets/img/themes/code-vibe-theme/exit-code-vibe.svg');
 }
