@@ -88,17 +88,17 @@
             transform: scale(0.96);
         }
 
-      &--primary {
-    background-color: var(--dialog1BackBtn-bg);
-    color: col.$white-standard;
-    border: var(--quitDialog-btnPrimary);
+        &--primary {
+            background-color: var(--dialog1BackBtn-bg);
+            color: col.$white-standard;
+            border: var(--quitDialog-btnPrimary);
 
-    &:hover {
-        background-color: var(--dialog1BackBtn-bgHover);
-        border: var(--dialog1BackBtn-BorderHover);
-        color: var(--dialog1BackBtn-colorHover, col.$white-standard);
-    }
-}
+            &:hover {
+                background-color: var(--dialog1BackBtn-bgHover);
+                border: var(--dialog1BackBtn-BorderHover);
+                color: var(--dialog1BackBtn-colorHover, col.$white-standard);
+            }
+        }
 
         &--secondary {
             background-color: transparent;
