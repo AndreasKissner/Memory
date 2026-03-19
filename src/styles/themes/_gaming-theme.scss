@@ -71,13 +71,24 @@
 
 }
 
-[data-theme="gaming-theme"] .quit-dialog__button--primary {
-    --dialog1BackBtn-bg: #ED1B76;
-    --quitDialog-btnPrimary:2px solid #E71C4F;
+[data-theme="gaming-theme"] .quit-dialog__button {
+    --dialog1BackBtn-border: 10px;
+    --dialog1BackBtn-BorderColor: 2px solid #E71C4F;
 }
 
-[data-theme="gaming-theme"] .quit-dialog__button--primary:hover {
-    --dialog1BackBtn-bgHover: #ffffff;
-    --dialog1BackBtn-BorderHover: 4px solid #E71C4F;
-    --dialog1BackBtn-colorHover: #E71C4F;
+[data-theme="gaming-theme"] .quit-dialog__button--primary {
+    --btnPrimary-bg: #ED1B76;
+    --btnPrimary-border: #E71C4F;
+    --btnPrimary-color: #{col.$white-standard};
+    --btnPrimary-bgHover: #ffffff;
+    --btnPrimary-borderHover: #E71C4F;
+    --btnPrimary-colorHover: #E71C4F;
+}
+
+[data-theme="gaming-theme"] .quit-dialog__button--secondary {
+    --btnSecondary-bg: transparent;
+    --btnSecondary-border: #E71C4F;
+    --btnSecondary-color: #E71C4F;
+    --btnSecondary-bgHover: #e71c4f23;
+    --btnSecondary-borderHover: #E71C4F;
 }

@@ -48,12 +48,20 @@
 }
 
 [data-theme="code-vibe-theme"] .quit-dialog__button--primary {
-    --dialog1BackBtn-bg: #4DD5BC;
+    --btnPrimary-bg: #4DD5BC;
+    --btnPrimary-border: #4DD5BC;
+    --btnPrimary-color: #{col.$white-standard};
+    --btnPrimary-bgHover: #4dd5bc6a;
+    --btnPrimary-borderHover: #4DD5BC;
+    --btnPrimary-colorHover: #{col.$white-standard};
 }
 
-[data-theme="code-vibe-theme"] .quit-dialog__button--primary:hover {
-    --dialog1BackBtn-bgHover: #4dd5bc6a;
-    --dialog1BackBtn-BorderHover: 4px solid #4DD5BC;
+[data-theme="code-vibe-theme"] .quit-dialog__button--secondary {
+    --btnSecondary-bg: transparent;
+    --btnSecondary-border: #4DD5BC;
+    --btnSecondary-color: #4DD5BC;
+    --btnSecondary-bgHover: #4dd5bc23;
+    --btnSecondary-borderHover: #4DD5BC;
 }
 
 

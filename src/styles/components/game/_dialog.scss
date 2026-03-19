@@ -74,40 +74,40 @@
         width: 100%;
     }
 
-    &__button {
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: 700;
-        padding: 15px 30px;
-        border-radius: var(--dialog1BackBtn-border);
-        box-sizing: border-box;
-        border: var(--dialog1BackBtn-BorderColor);
-        min-width: 180px;
+&__button {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: var(--dialog1BackBtn-border);
+    box-sizing: border-box;
+    min-width: 180px;
 
-        &:active {
-            transform: scale(0.96);
-        }
+    &:active {
+        transform: scale(0.96);
+    }
 
-        &--primary {
-            background-color: var(--dialog1BackBtn-bg);
-            color: col.$white-standard;
-            border: var(--quitDialog-btnPrimary);
+    &--primary {
+        background-color: var(--btnPrimary-bg);
+        color: var(--btnPrimary-color);
+        border: 4px solid var(--btnPrimary-border);
 
-            &:hover {
-                background-color: var(--dialog1BackBtn-bgHover);
-                border: var(--dialog1BackBtn-BorderHover);
-                color: var(--dialog1BackBtn-colorHover, col.$white-standard);
-            }
-        }
-
-        &--secondary {
-            background-color: transparent;
-            color: #4DD5BC;
-
-            &:hover {
-                background-color: #4dd5bc23;
-                border: 4px solid #4DD5BC;
-            }
+        &:hover {
+            background-color: var(--btnPrimary-bgHover);
+            border-color: var(--btnPrimary-borderHover);
+            color: var(--btnPrimary-colorHover);
         }
     }
+
+    &--secondary {
+        background-color: var(--btnSecondary-bg);
+        color: var(--btnSecondary-color);
+        border: 4px solid var(--btnSecondary-border);
+
+        &:hover {
+            background-color: var(--btnSecondary-bgHover);
+            border-color: var(--btnSecondary-borderHover);
+        }
+    }
+}
 }
