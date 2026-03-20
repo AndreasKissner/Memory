@@ -11,9 +11,6 @@ export function loadThemeImages(themeFolder: string): void {
     iconBlue.src = `/assets/img/themes/${themeFolder}/player-icon-blue.svg`;
   }
   if (iconOrange) iconOrange.src = `/assets/img/themes/${themeFolder}/player-icon-orange.svg`;
-  
 
   if (currentPlayerIcon) currentPlayerIcon.src = `/assets/img/themes/${themeFolder}/current-player-blue.svg`;
-
-
 }

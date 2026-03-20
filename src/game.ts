@@ -158,7 +158,7 @@ function showGameOver(): void {
   setTimeout(() => {
     gameOverDialog.showModal();
     showWinner();
-  }, 2000);
+  }, 2000);  
 }
 
 // ─── Winner ─────────────────────────────────────
@@ -196,3 +196,6 @@ quitDialog?.addEventListener('close', () => {
 backToStartBtn?.addEventListener('click', () => {
   window.location.href = '/pages_html/settings.html';
 });
+
+// TEMP: game over dialog sofort anzeigen
+gameOverDialog?.showModal(); 

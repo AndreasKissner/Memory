@@ -2,6 +2,11 @@
 @use "../abstract/font-varibales" as font;
 @use "../abstract/mixins/mixins-standard" as flex;
 
+[data-theme="code-vibe-theme"] .memory-card__img {
+   --memoryCards-width:120px;
+   --memoryCards-height:120px;
+}
+
 [data-theme="code-vibe-theme"] {
     --body-bg: #303131;
 }
@@ -64,8 +69,6 @@
     --btnSecondary-borderHover: #4DD5BC;
 }
 
-
-
 //exit Button
 [data-theme="code-vibe-theme"] .exit-game {
     --exitGame-bg: #86E9D633;
@@ -77,4 +80,44 @@
 [data-theme="code-vibe-theme"] .exit-game:hover {
    --exitGame-hoverBorder: 4px solid #4DD5BC;
    --exitIcon-url: url('/assets/img/themes/code-vibe-theme/exit-code-vibe.svg');
+}
+
+
+/////Game Over dialog
+
+[data-theme="code-vibe-theme"] .game-over-dialog{
+    --gameOverDialog-bg:  #303131;
+}
+
+
+[data-theme="code-vibe-theme"] .game-over-dialog__container {
+    --gameOverDialog-Font:  #{font.$red-rose};
+}
+
+[data-theme="code-vibe-theme"] .game-over-dialog__img {
+    --gameOver-img: url('/assets/img/game-over/game_over.svg');
+}
+
+[data-theme="code-vibe-theme"] .game-over-dialog__points{
+    --gameOverDialog-pointsFontSize:24px;
+}
+
+[data-theme="code-vibe-theme"] .game-over-dialog__player:first-child {
+    --gameOver-playerColor: #2BB1FF;
+}
+
+[data-theme="code-vibe-theme"] .game-over-dialog__player:last-child {
+    --gameOver-playerColor: #F58E39;
+}
+
+[data-theme="code-vibe-theme"] .game-over-dialog__player:first-child {
+    --gameOver-playerIcon: url('/assets/img/themes/code-vibe-theme/player-icon-blue.svg');
+}
+
+[data-theme="code-vibe-theme"] .game-over-dialog__player:last-child {
+    --gameOver-playerIcon: url('/assets/img/themes/code-vibe-theme/player-icon-orange.svg');
+}
+
+[data-theme="code-vibe-theme"] .game-over-dialog__scores {
+   --gameOverDialog-scoreBg: #86E9D633 ;
 }

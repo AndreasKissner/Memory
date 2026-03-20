@@ -7,6 +7,11 @@
     --body-bg: #294F60;
 }
 
+[data-theme="gaming-theme"] .memory-card__img {
+    --memoryCards-width: 138px;
+    --memoryCards-height: 154px;
+}
+
 [data-theme="gaming-theme"] .game-header {
     --bgColor-header: #FD96C933;
     --padding-headerNav: 0 25px;
@@ -61,7 +66,7 @@
 [data-theme="gaming-theme"] .quit-dialog__title {
     --dialog1-font: #{font.$orbitron};
     --quitDialog-textColor: #333333;
- 
+
 }
 
 
@@ -91,4 +96,47 @@
     --btnSecondary-color: #E71C4F;
     --btnSecondary-bgHover: #e71c4f23;
     --btnSecondary-borderHover: #E71C4F;
+}
+
+//Game Over Dialog
+
+[data-theme="gaming-theme"] .game-over-dialog{
+    --gameOverDialog-bg: #294F60;
+}
+
+[data-theme="gaming-theme"] .game-over-dialog__container {
+    --gameOverDialog-Font: #{font.$orbitron};
+}
+
+[data-theme="gaming-theme"] .game-over-dialog__img {
+    --gameOver-img: url('/assets/img/game-over/game-over-gaming.svg');
+}
+
+ [data-theme="gaming-theme"] .game-over-dialog__points {
+        --gameOverDialog-pointsFontSize: 30px;
+    }
+
+[data-theme="gaming-theme"] .game-over-dialog__scores {
+    --gameOverDialog-scoreBg: #FFFFFF;
+    --gameOverDialog-scoreBorderRadius: 10px;
+}
+
+[data-theme="gaming-theme"] .game-over-dialog__name {
+    --gameOverDialog-nameDNone: none;
+}
+
+[data-theme="gaming-theme"] .game-over-dialog__player:first-child {
+    --gameOver-playerColor: #2BB1FF;
+}
+
+[data-theme="gaming-theme"] .game-over-dialog__player:last-child {
+    --gameOver-playerColor: #F58E39;
+}
+
+[data-theme="gaming-theme"] .game-over-dialog__player:first-child {
+    --gameOver-playerIcon: url('/assets/img/themes/gaming-theme/player-icon-blue.svg');
+}
+
+[data-theme="gaming-theme"] .game-over-dialog__player:last-child {
+    --gameOver-playerIcon: url('/assets/img/themes/gaming-theme/player-icon-orange.svg');
 }

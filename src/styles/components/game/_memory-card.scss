@@ -1,8 +1,8 @@
 .memory-card {
-    width: 120px;
     height: 120px;
+    width: 120px;
     cursor: pointer;
-    perspective: 1000px;
+     perspective: 1000px; 
 }
 
 .memory-card__front,
@@ -22,8 +22,8 @@
 }
 
 .memory-card__img {
-    width: 100%;
-    height: 100%;
+    width: var(--memoryCards-width);
+    height: var(--memoryCards-height);
     object-fit: cover;
     border-radius: 8px;
 }
