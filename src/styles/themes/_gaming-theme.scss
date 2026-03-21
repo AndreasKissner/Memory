@@ -100,7 +100,7 @@
 
 //Game Over Dialog
 
-[data-theme="gaming-theme"] .game-over-dialog{
+[data-theme="gaming-theme"] .game-over-dialog {
     --gameOverDialog-bg: #294F60;
 }
 
@@ -112,9 +112,9 @@
     --gameOver-img: url('/assets/img/game-over/game-over-gaming.svg');
 }
 
- [data-theme="gaming-theme"] .game-over-dialog__points {
-        --gameOverDialog-pointsFontSize: 30px;
-    }
+[data-theme="gaming-theme"] .game-over-dialog__points {
+    --gameOverDialog-pointsFontSize: 30px;
+}
 
 [data-theme="gaming-theme"] .game-over-dialog__scores {
     --gameOverDialog-scoreBg: #FFFFFF;
@@ -141,4 +141,20 @@
     --gameOver-playerIcon: url('/assets/img/themes/gaming-theme/player-icon-orange.svg');
 }
 
+// Winner Dialog
+[data-theme="gaming-theme"] .winner-dialog__container {
+    --winnerDialog-font: #{font.$orbitron};
+}
 
+[data-theme="gaming-theme"] .winner-dialog__confetti {
+    --winnerDialogConfetti-img: url('/assets/img/themes/gaming-theme/confetti-game.png');
+}
+
+[data-theme="gaming-theme"] .winner-dialog__btn {
+    --winnerDialog-btnBorder: 2px solid #ff4d7d;
+    --winnerDialog-btnBorderHover: 4px solid #E71C4F ;
+    --winnerDialog-btnFontSize: 20px;
+    --winnerDialog-btnBg: transparent;
+    --winnerDialog-btnBorderRadius: 10px;
+    --winnerDialog-padding: 12px 20px;
+}

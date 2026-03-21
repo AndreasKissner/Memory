@@ -8,6 +8,8 @@
     border: none;
     padding: 0;
     background-color: col.$primary-dark;
+
+
 }
 
 .winner-dialog__container {
@@ -19,11 +21,12 @@
     align-items: center;
     gap: 20px;
     color: col.$white-standard;
-    font-family: font.$red-rose;
+    font-family: var(--winnerDialog-font);
+    /*    font-family: font.$red-rose; */
 }
 
 .winner-dialog__confetti {
-  
+    content: var(--winnerDialogConfetti-img);
     width: 1235px;
     height: 360px;
 }
@@ -31,15 +34,15 @@
 .winner-dialog__subtitle {
     font-size: 40px;
     font-weight: 400;
-    font-family: font.$red-rose;
-   
+    /*  font-family: font.$red-rose; */
+
 }
 
 .winner-dialog__name {
     font-size: 60px;
     font-weight: 700;
     text-transform: uppercase;
-    font-family: font.$red-rose;
+    /* font-family: font.$red-rose; */
 
     &--blue {
         color: #2BB1FF;
@@ -57,20 +60,31 @@
 
 .winner-dialog__btn {
     background-color: transparent;
-    border: 1px solid #4DD5BC;
+    border: var(--winnerDialog-btnBorder);
     color: col.$white-standard;
-    font-family: font.$red-rose;
-    font-size: 24px;
+    font-size: var(--winnerDialog-btnFontSize);
     font-weight: 700;
     padding: 16px 24px;
+    padding: var(--winnerDialog-padding);
     cursor: pointer;
-     margin-bottom: 120px;
-     background-color: #86E9D633;
+    margin-bottom: 120px;
+    border-radius: var(--winnerDialog-btnBorderRadius);
+    background-color: var(--winnerDialog-btnBg);
+
+&:hover {
+    outline: var(--winnerDialog-btnBorderHover, var(--winnerDialog-btnBorder));
+    border: var(--winnerDialog-btnBorder);
+}
 }
 
 @keyframes slideDown {
-    from { transform: translateY(-100vh); }
-    to { transform: translateY(0); }
+    from {
+        transform: translateY(-100vh);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
 .winner-dialog[open] {

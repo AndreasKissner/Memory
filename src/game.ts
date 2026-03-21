@@ -200,4 +200,4 @@ backToStartBtn?.addEventListener('click', () => {
 
 // TEMP: game over dialog sofort anzeigen
 /* gameOverDialog?.showModal();  */
-/* winnerDialog?.showModal(); */
+ winnerDialog?.showModal(); 

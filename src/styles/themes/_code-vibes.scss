@@ -3,8 +3,8 @@
 @use "../abstract/mixins/mixins-standard" as flex;
 
 [data-theme="code-vibe-theme"] .memory-card__img {
-   --memoryCards-width:120px;
-   --memoryCards-height:120px;
+    --memoryCards-width: 120px;
+    --memoryCards-height: 120px;
 }
 
 [data-theme="code-vibe-theme"] {
@@ -78,28 +78,28 @@
 }
 
 [data-theme="code-vibe-theme"] .exit-game:hover {
-   --exitGame-hoverBorder: 4px solid #4DD5BC;
-   --exitIcon-url: url('/assets/img/themes/code-vibe-theme/exit-code-vibe.svg');
+    --exitGame-hoverBorder: 4px solid #4DD5BC;
+    --exitIcon-url: url('/assets/img/themes/code-vibe-theme/exit-code-vibe.svg');
 }
 
 
 /////Game Over dialog
 
-[data-theme="code-vibe-theme"] .game-over-dialog{
-    --gameOverDialog-bg:  #303131;
+[data-theme="code-vibe-theme"] .game-over-dialog {
+    --gameOverDialog-bg: #303131;
 }
 
 
 [data-theme="code-vibe-theme"] .game-over-dialog__container {
-    --gameOverDialog-Font:  #{font.$red-rose};
+    --gameOverDialog-Font: #{font.$red-rose};
 }
 
 [data-theme="code-vibe-theme"] .game-over-dialog__img {
     --gameOver-img: url('/assets/img/game-over/game_over.svg');
 }
 
-[data-theme="code-vibe-theme"] .game-over-dialog__points{
-    --gameOverDialog-pointsFontSize:24px;
+[data-theme="code-vibe-theme"] .game-over-dialog__points {
+    --gameOverDialog-pointsFontSize: 24px;
 }
 
 [data-theme="code-vibe-theme"] .game-over-dialog__player:first-child {
@@ -119,5 +119,18 @@
 }
 
 [data-theme="code-vibe-theme"] .game-over-dialog__scores {
-   --gameOverDialog-scoreBg: #86E9D633 ;
+    --gameOverDialog-scoreBg: #86E9D633;
+}
+
+// Winner Dialog
+
+[data-theme="code-vibe-theme"] .winner-dialog__container {
+    --winnerDialog-font: #{font.$red-rose};
+}
+
+[data-theme="code-vibe-theme"] .winner-dialog__btn {
+    --winnerDialog-btnBorder: 1px solid #4DD5BC;
+    --winnerDialog-btnFontSize: 24px;
+    --winnerDialog-btnBg: #86E9D633;
+    --winnerDialog-padding: 16px 24px;
 }
