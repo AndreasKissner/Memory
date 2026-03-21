@@ -169,8 +169,9 @@ function showWinner(): void {
   winnerName.classList.remove('winner-dialog__name--blue', 'winner-dialog__name--orange');
   winnerName.classList.add(blueWins ? 'winner-dialog__name--blue' : 'winner-dialog__name--orange');
   winnerIcon.src = blueWins
-    ? '/assets/img/themes/code-vibe-theme/chess-blue.svg'
-    : '/assets/img/themes/code-vibe-theme/chess-orange.svg';
+ 
+    ? `/assets/img/themes/${themeFolder}/chess-blue.svg`
+    : `/assets/img/themes/${themeFolder}/chess-orange.svg`;
   setTimeout(() => {
     winnerDialog.showModal();
   }, 2000);
@@ -198,4 +199,5 @@ backToStartBtn?.addEventListener('click', () => {
 });
 
 // TEMP: game over dialog sofort anzeigen
-gameOverDialog?.showModal(); 
+/* gameOverDialog?.showModal();  */
+/* winnerDialog?.showModal(); */
