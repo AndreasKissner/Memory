@@ -158,3 +158,10 @@
     --winnerDialog-btnBorderRadius: 10px;
     --winnerDialog-padding: 12px 20px;
 }
+
+
+// Match Border
+[data-theme="gaming-theme"] .memory-card {
+    --memoryCard-width: 105px;
+    --memoryCard-height: 120px;
+}
