@@ -36,10 +36,8 @@
 }
 
 .game-over-dialog__subtitle {
-   
     font-size: 26px;
     font-weight: 400;
-
 }
 
 .game-over-dialog__scores {
@@ -61,12 +59,12 @@
 }
 
 .game-over-dialog__icon {
-     content: var(--gameOver-playerIcon);
+    content: var(--gameOver-playerIcon);
     width: 24px;
     height: 20px;
 }
 
-.game-over-dialog__name{
+.game-over-dialog__name {
     display: var(--gameOverDialog-nameDNone);
 }
 
@@ -90,6 +88,6 @@
 }
 
 .game-over-dialog[open] {
-     animation: slideDown 0.6s ease forwards;
+    animation: slideDown 0.6s ease forwards;
     max-height: 100dvh;
 }

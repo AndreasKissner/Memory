@@ -163,13 +163,14 @@
         padding: 0px;
     }
 
-    &__sub-item {
-        @include flex.flex($direction: null, $justify: center, $align: center);
-        gap: var(--themePreviewSubItem-gap);
-        font-size: 20px;
-        font-family: font.$almarai ;
-        font-weight: 400;
-    }
+ &__sub-item {
+    @include flex.flex($direction: null, $justify: center, $align: center);
+    gap: var(--themePreviewSubItem-gap);
+    font-size: 20px;
+    font-family: font.$almarai;
+    font-weight: 400;
+    transition: gap 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 
     .theme-preview__sub-item {
         --themePreviewSubItem-gap: 12px;

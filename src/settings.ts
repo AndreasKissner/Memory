@@ -14,7 +14,7 @@ const selectionState: SelectionState = {
   themeId: '',
   playerColor: '',
   boardSize: '',
-  folder :''
+  folder: ''
 };
 
 const themeImage = document.querySelector<HTMLImageElement>('.theme-preview__image');

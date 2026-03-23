@@ -98,6 +98,8 @@ function checkForMatch(): void {
 }
 
 function disableCards(): void {
+  gameState.firstCard?.classList.add('is-matched');
+  gameState.secondCard?.classList.add('is-matched');
   gameState.firstCard?.removeEventListener('click', onCardClick);
   gameState.secondCard?.removeEventListener('click', onCardClick);
   updateScore();
