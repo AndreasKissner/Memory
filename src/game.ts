@@ -158,18 +158,20 @@ function showGameOver(): void {
   setTimeout(() => {
     gameOverDialog.showModal();
     showWinner();
-  }, 2000);  
+  }, 2000);
 }
 
 // ─── Winner ─────────────────────────────────────
 function showWinner(): void {
-  if (!winnerDialog || !winnerName || !winnerIcon) return;
+   console.log('backToStartBtn:', backToStartBtn);
+  console.log('themeFolder:', themeFolder);
+  if (!winnerDialog || !winnerName || !winnerIcon || !backToStartBtn) return;
   const blueWins = gameState.scoreBlue > gameState.scoreOrange;
   winnerName.textContent = blueWins ? 'Blue Player' : 'Orange Player';
   winnerName.classList.remove('winner-dialog__name--blue', 'winner-dialog__name--orange');
   winnerName.classList.add(blueWins ? 'winner-dialog__name--blue' : 'winner-dialog__name--orange');
+  backToStartBtn.textContent = themeFolder === 'gaming-theme' ? 'Home' : 'Back to start';
   winnerIcon.src = blueWins
- 
     ? `/assets/img/themes/${themeFolder}/chess-blue.svg`
     : `/assets/img/themes/${themeFolder}/chess-orange.svg`;
   setTimeout(() => {
@@ -200,4 +202,4 @@ backToStartBtn?.addEventListener('click', () => {
 
 // TEMP: game over dialog sofort anzeigen
 /* gameOverDialog?.showModal();  */
- winnerDialog?.showModal(); 
+/* winnerDialog?.showModal();  */

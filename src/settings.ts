@@ -89,13 +89,15 @@ function checkAllSelected(): void {
  * Toggles the 'is-selected' class on theme and player dividers.
  * @param allSelected - True to add the class, false to remove it.
  */
+const subNav = document.querySelector<HTMLElement>('.theme-preview__sub-nav');
+
 function updateDividers(allSelected: boolean): void {
   const action = allSelected ? 'add' : 'remove';
-
   themeDividerBig?.classList[action]('is-selected');
   themeDividerSmall?.classList[action]('is-selected');
   playerDividerBig?.classList[action]('is-selected');
   playerDividerSmall?.classList[action]('is-selected');
+  subNav?.classList[action]('is-selected');
 }
 
 /**
