@@ -17,23 +17,22 @@
     align-items: center;
     gap: 15px;
     cursor: pointer;
-   
-    transition: all 0.15s ease-in-out;
+    transition: all 0.05 ease-in-out;
 
-  &:hover {
-    border: var(--exitGame-hoverBorder);
-}
+    &:hover {
+        border: var(--exitGame-hoverBorder);
+    }
 
-   &__icon {
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-    display: inline-block;
-    background-image: var(--exitIcon-url);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+    &__icon {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        display: inline-block;
+        background-image: var(--exitIcon-url);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 
     &__text {
         pointer-events: none;

@@ -163,21 +163,32 @@ function showGameOver(): void {
 }
 
 // ─── Winner ─────────────────────────────────────
-function showWinner(): void {
-   console.log('backToStartBtn:', backToStartBtn);
-  console.log('themeFolder:', themeFolder);
-  if (!winnerDialog || !winnerName || !winnerIcon || !backToStartBtn) return;
-  const blueWins = gameState.scoreBlue > gameState.scoreOrange;
-  winnerName.textContent = blueWins ? 'Blue Player' : 'Orange Player';
+function getWinnerState() {
+  return {
+    isTie: gameState.scoreBlue === gameState.scoreOrange,
+    blueWins: gameState.scoreBlue > gameState.scoreOrange
+  };
+}
+
+function updateWinnerUI(isTie: boolean, blueWins: boolean): void {
+  if (!winnerName || !winnerIcon) return;
   winnerName.classList.remove('winner-dialog__name--blue', 'winner-dialog__name--orange');
-  winnerName.classList.add(blueWins ? 'winner-dialog__name--blue' : 'winner-dialog__name--orange');
+  if (isTie) {
+    winnerName.textContent = "It's a Tie!";
+    winnerIcon.src = `/assets/img/themes/${themeFolder}/chess-blue.svg`;
+  } else {
+    winnerName.textContent = blueWins ? 'Blue Player' : 'Orange Player';
+    winnerName.classList.add(blueWins ? 'winner-dialog__name--blue' : 'winner-dialog__name--orange');
+    winnerIcon.src = `/assets/img/themes/${themeFolder}/chess-${blueWins ? 'blue' : 'orange'}.svg`;
+  }
+}
+
+function showWinner(): void {
+  if (!winnerDialog || !winnerName || !winnerIcon || !backToStartBtn) return;
+  const { isTie, blueWins } = getWinnerState();
+  updateWinnerUI(isTie, blueWins);
   backToStartBtn.textContent = themeFolder === 'gaming-theme' ? 'Home' : 'Back to start';
-  winnerIcon.src = blueWins
-    ? `/assets/img/themes/${themeFolder}/chess-blue.svg`
-    : `/assets/img/themes/${themeFolder}/chess-orange.svg`;
-  setTimeout(() => {
-    winnerDialog.showModal();
-  }, 2000);
+  setTimeout(() => winnerDialog.showModal(), 2000);
 }
 
 // ─── Event Listeners ────────────────────────────
