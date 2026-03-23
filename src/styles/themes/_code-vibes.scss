@@ -2,10 +2,7 @@
 @use "../abstract/font-varibales" as font;
 @use "../abstract/mixins/mixins-standard" as flex;
 
-[data-theme="code-vibe-theme"] .memory-card__img {
-    --memoryCards-width: 120px;
-    --memoryCards-height: 120px;
-}
+
 
 [data-theme="code-vibe-theme"] {
     --body-bg: #303131;
@@ -135,3 +132,16 @@
     --winnerDialog-padding: 16px 24px;
 }
 
+[data-theme="code-vibe-theme"] .memory-card__img {
+    --memoryCards-width: 120px;
+    --memoryCards-height: 120px;
+}
+
+[data-theme="code-vibe-theme"] .memory-card.is-matched .memory-card__inner {
+    --matchedCard-border: 5px solid #4DD5BC;
+  /*   --matchedCard-borderRadius: 8px; */
+}
+
+[data-theme="code-vibe-theme"] .cards-grid {
+  --cardsGrid-gap:15px;
+}

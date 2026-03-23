@@ -7,10 +7,7 @@
     --body-bg: #294F60;
 }
 
-[data-theme="gaming-theme"] .memory-card__img {
-    --memoryCards-width: 138px;
-    --memoryCards-height: 154px;
-}
+
 
 [data-theme="gaming-theme"] .game-header {
     --bgColor-header: #FD96C933;
@@ -152,7 +149,7 @@
 
 [data-theme="gaming-theme"] .winner-dialog__btn {
     --winnerDialog-btnBorder: 2px solid #ff4d7d;
-    --winnerDialog-btnBorderHover: 4px solid #E71C4F ;
+    --winnerDialog-btnBorderHover: 4px solid #E71C4F;
     --winnerDialog-btnFontSize: 20px;
     --winnerDialog-btnBg: transparent;
     --winnerDialog-btnBorderRadius: 10px;
@@ -161,7 +158,30 @@
 
 
 // Match Border
+// Memory Cards
 [data-theme="gaming-theme"] .memory-card {
     --memoryCard-width: 105px;
     --memoryCard-height: 120px;
+}
+
+[data-theme="gaming-theme"] .memory-card__front {
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[data-theme="gaming-theme"] .memory-card__front .memory-card__img {
+    width: auto;
+    height: auto;
+}
+
+[data-theme="gaming-theme"] .memory-card.is-matched .memory-card__inner {
+    --matchedCard-border: 3px solid #ED1B76;
+    --matchedCard-borderRadius: 12px;
+}
+
+[data-theme="gaming-theme"] .cards-grid {
+  --cardsGrid-gap:0;
 }

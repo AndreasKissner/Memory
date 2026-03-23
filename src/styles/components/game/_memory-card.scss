@@ -25,7 +25,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    
 }
 
 .memory-card__front,
@@ -46,4 +46,11 @@
 
 .memory-card.is-flipped .memory-card__inner {
     transform: rotateY(180deg);
+}
+
+
+.memory-card.is-matched .memory-card__inner {
+    border: var(--matchedCard-border);
+    border-radius: var(--matchedCard-borderRadius);
+    box-sizing: border-box;
 }

@@ -52,15 +52,15 @@ function updateGridLayout(boardSize: string): void {
   if (boardSize === '16 Cards') {
     cardsGrid.style.width = '555px';
     cardsGrid.style.gridTemplateColumns = 'repeat(4, 120px)';
-    cardsGrid.style.gap = '15px';
+ /*    cardsGrid.style.gap = '15px'; */
   } else if (boardSize === '24 Cards') {
     cardsGrid.style.width = '750px';
     cardsGrid.style.gridTemplateColumns = 'repeat(6, 110px)';
-    cardsGrid.style.gap = '15px';
+   /*  cardsGrid.style.gap = '15px'; */
   } else if (boardSize === '36 Cards') {
     cardsGrid.style.width = '1060px';
     cardsGrid.style.gridTemplateColumns = 'repeat(9, 110px)';
-    cardsGrid.style.gap = '15px';
+   /*  cardsGrid.style.gap = '15px'; */
     cardsGrid.style.marginRight = '60px';
   }
 }

@@ -112,7 +112,7 @@ body {
 .cards-grid {
     height: 530px;
     display: grid;
-    gap: 15px;
+    gap: var(--cardsGrid-gap);
     align-self: center;
     margin-top: auto;
     margin-bottom: 20px;
