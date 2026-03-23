@@ -69,14 +69,13 @@ function generateCards(folder: string): void {
   const cardsGrid = document.querySelector<HTMLElement>('.cards-grid');
   if (!cardsGrid) return;
   const pairs = getPairsFromBoardSize(savedSettings.boardSize);
-  let html = '';
+  let cards: string[] = [];
   for (let i = 1; i <= pairs; i++) {
-    html += createCardTemplate(i, folder);
-    html += createCardTemplate(i, folder);
+    cards.push(createCardTemplate(i, folder));
+    cards.push(createCardTemplate(i, folder));
   }
-  cardsGrid.innerHTML = html;
-  console.log('generateCards aufgerufen mit folder:', folder);
-  console.log('pairs:', getPairsFromBoardSize(savedSettings.boardSize));
+  cards.sort(() => Math.random() - 0.5);
+  cardsGrid.innerHTML = cards.join('');
 }
 
 // ─── Karten Logik ───────────────────────────────
