@@ -1,19 +1,18 @@
 @use "../abstract/font-varibales" as font;
 @use "../abstract/color-variables" as col;
-@use "../abstract/mixins/mixins-standard" as flex;
+@use "../abstract/mixins/mixins-standard" as mix;
 
 * {
     margin: 0;
 }
 
-// ─── Layout-Block ───────────────────────────────
 .settings-panel {
 
-    @include flex.size(1100px, 590px);
+    @include mix.size(1100px, 590px);
     margin-bottom: 90px;
     box-sizing: border-box;
     background-color: transparent;
-    @include flex.flex($direction: row, $justify: space-between, $align: null);
+    @include mix.flex($direction: row, $justify: space-between, $align: null);
 
     &__nav {
         width: 50%;
@@ -22,13 +21,12 @@
 
     &__display {
         width: 60%;
-        @include flex.flex($direction: column, $justify: center, $align: center, $gap: null);
+        @include mix.flex($direction: column, $justify: center, $align: center, $gap: null);
     }
 }
 
-// ─── Nav-Options Block ───────────────────────────
 .nav-options {
-    @include flex.flex($direction: column, $justify: center, $align: flex-start, $gap: null);
+    @include mix.flex($direction: column, $justify: center, $align: flex-start, $gap: null);
     margin-top: 20px;
 
     &__section-title {
@@ -67,7 +65,7 @@
 
     &__indicator {
 
-        @include flex.size();
+        @include mix.size();
 
         border-radius: 50%;
         box-shadow: inset 0 0 0 4px #333;
@@ -82,10 +80,8 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 10px;
-            height: 10px;
-            @include flex.size(10px, 10px);
-            background-color: #333;
+            @include mix.size(10px, 10px);
+            /*    background-color: #cdca11; */
             border-radius: 50%;
             transform: translate(-50%, -50%) scale(0);
             transition: transform 0.2s ease-in-out;
@@ -105,7 +101,6 @@
         pointer-events: none;
     }
 
-    // Hover
     &__label:hover &__indicator {
         box-shadow: inset 0 0 0 2px #333;
     }
@@ -123,7 +118,7 @@
         transform: translateX(0);
     }
 
-    // Checked
+
     &__radio:checked+&__label &__label-text {
         font-weight: bold;
     }
@@ -142,19 +137,18 @@
     }
 }
 
-// ─── Theme-Preview Block ─────────────────────────
 .theme-preview {
-    @include flex.flex($direction: column, $gap: 20px, $justify: center, $align: center);
+    @include mix.flex($direction: column, $gap: 20px, $justify: center, $align: center);
 
     &__image {
-        @include flex.size(425px, 380px);
+        @include mix.size(425px, 380px);
         border-radius: 16px;
         align-self: flex-end;
     }
 
     &__sub-nav {
-        @include flex.flex($direction: null, $justify: flex-end, $align: center, $gap: 20px);
-        @include flex.size(590px, 81px);
+        @include mix.flex($direction: null, $justify: flex-end, $align: center, $gap: 20px);
+        @include mix.size(590px, 81px);
         background-color: col.$white-bg-setting-start;
     }
 
@@ -162,23 +156,21 @@
         padding: 0px;
     }
 
- &__sub-item {
-    @include flex.flex($direction: null, $justify: center, $align: center);
-    gap: var(--themePreviewSubItem-gap);
-    font-size: 20px;
-    font-family: font.$almarai;
-    font-weight: 400;
-    transition: gap 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
+    &__sub-item {
+        @include mix.flex($direction: null, $justify: center, $align: center);
+        gap: var(--themePreviewSubItem-gap);
+        font-family: font.$almarai;
+        @include mix.fontSizeWeight(20px, 400);
+        transition: gap 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
 
     .theme-preview__sub-item {
         --themePreviewSubItem-gap: 12px;
     }
 
     &__sub-item img {
-        width: 40px;
-        height: 50px;
-        @include flex.size(40px, 50px);
+        @include mix.size(40px, 50px);
+        @include mix.size(40px, 50px);
     }
 }
 

@@ -1,12 +1,11 @@
 @use "../abstract/color-variables" as col;
 @use "../abstract/font-varibales" as font;
-@use "../abstract/mixins/mixins-standard" as flex;
+@use "../abstract/mixins/mixins-standard" as mix;
 
 .play-link {
     background-color: col.$secondary_yello;
-    @include flex.flex($direction: null, $gap: 10px, $justify: center, $align: center);
-    width: 250px;
-    height:98px;
+    @include mix.flex($direction: null, $gap: 10px, $justify: center, $align: center);
+    @include mix.size(250px, 98px);
     text-decoration: none;
     padding: 10px;
     transition: all 0.3s ease;
@@ -29,7 +28,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        @include flex.size();
+        @include mix.size();
     }
 
     &__arrow {

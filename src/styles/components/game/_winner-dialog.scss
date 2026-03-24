@@ -20,23 +20,16 @@
 
 .winner-dialog__confetti {
     content: var(--winnerDialogConfetti-img);
-    width: 1235px;
-    height: 360px;
     @include mix.size(1235px, 360px);
 }
 
 .winner-dialog__subtitle {
-    font-size: 40px;
-    font-weight: 400;
-    /*  font-family: font.$red-rose; */
-
+    @include mix.fontSizeWeight(40px, 400)
 }
 
 .winner-dialog__name {
-    font-size: 60px;
-    font-weight: 700;
+    @include mix.fontSizeWeight(60px, 700);
     text-transform: uppercase;
-    /* font-family: font.$red-rose; */
 
     &--blue {
         color: #2BB1FF;
@@ -48,8 +41,7 @@
 }
 
 .winner-dialog__icon {
-    width: 200px;
-    height: 200px;
+    @include mix.size(200px, 200px);
 }
 
 .winner-dialog__btn {
