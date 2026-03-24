@@ -22,9 +22,9 @@
     --playerScore-radius: 10px;
     --playerScore-points: 26px;
     --playerNameNone: none;
-    --playerScore-bg: white;
-    --playerOrange-color: #EA6900;
-    --playerBlue-color: #2BB1FF;
+    --playerScore-bg: #{col.$white-standard};
+    --playerOrange-color: #{col.$orange};
+    --playerBlue-color: #{col.$blue};
     --currentPlayer-label-font: #{font.$orbitron};
 }
 
@@ -47,7 +47,7 @@
 //exit Button
 [data-theme="gaming-theme"] .exit-game {
     --exitGame-bg: #ED1B7614;
-    --exitBtn-border: 2px solid #ED1B76;
+    --exitBtn-border: 2px solid #{col.$exitBtnBorderGame};
     --exitBtn-borderRadius: 10px;
     --currentPlayer-label-font: #{font.$orbitron};
     --exitIcon-url: url('/assets/img/themes/code-vibe-theme/exit-code-vibe.svg');
@@ -62,37 +62,37 @@
 
 [data-theme="gaming-theme"] .quit-dialog__title {
     --dialog1-font: #{font.$orbitron};
-    --quitDialog-textColor: #333333;
+    --quitDialog-textColor: #{col.$quitDialogText};
 
 }
 
 
 [data-theme="gaming-theme"] .quit-dialog__button {
     --dialog1BackBtn-border: 10px;
-    --dialog1BackBtn-BorderColor: 2px solid #E71C4F;
+    --dialog1BackBtn-BorderColor: 2px solid #{col.$dialogbackBtnBc};
 
 }
 
 [data-theme="gaming-theme"] .quit-dialog__button {
     --dialog1BackBtn-border: 10px;
-    --dialog1BackBtn-BorderColor: 2px solid #E71C4F;
+    --dialog1BackBtn-BorderColor: 2px solid #{col.$exitBtnBorderGame};
 }
 
 [data-theme="gaming-theme"] .quit-dialog__button--primary {
-    --btnPrimary-bg: #ED1B76;
-    --btnPrimary-border: #E71C4F;
+    --btnPrimary-bg:#{col.$dialogbackBtnBc};
+    --btnPrimary-border:#{col.$exitBtnBorderGame};
     --btnPrimary-color: #{col.$white-standard};
-    --btnPrimary-bgHover: #ffffff;
-    --btnPrimary-borderHover: #E71C4F;
-    --btnPrimary-colorHover: #E71C4F;
+    --btnPrimary-bgHover: #{col.$white-standard};
+    --btnPrimary-borderHover:#{col.$exitBtnBorderGame};
+    --btnPrimary-colorHover:#{col.$exitBtnBorderGame};
 }
 
 [data-theme="gaming-theme"] .quit-dialog__button--secondary {
     --btnSecondary-bg: transparent;
-    --btnSecondary-border: #E71C4F;
-    --btnSecondary-color: #E71C4F;
+    --btnSecondary-border:#{col.$exitBtnBorderGame};
+    --btnSecondary-color:#{col.$exitBtnBorderGame};
     --btnSecondary-bgHover: #e71c4f23;
-    --btnSecondary-borderHover: #E71C4F;
+    --btnSecondary-borderHover:#{col.$exitBtnBorderGame};
 }
 
 //Game Over Dialog
@@ -107,14 +107,14 @@
 
 [data-theme="gaming-theme"] .game-over-dialog__img {
     --gameOver-img: url('/assets/img/game-over/game-over-gaming.svg');
-}
+} 
 
 [data-theme="gaming-theme"] .game-over-dialog__points {
     --gameOverDialog-pointsFontSize: 30px;
 }
 
 [data-theme="gaming-theme"] .game-over-dialog__scores {
-    --gameOverDialog-scoreBg: #FFFFFF;
+    --gameOverDialog-scoreBg: #{col.$white-standard};
     --gameOverDialog-scoreBorderRadius: 10px;
 }
 
@@ -123,11 +123,11 @@
 }
 
 [data-theme="gaming-theme"] .game-over-dialog__player:first-child {
-    --gameOver-playerColor: #2BB1FF;
+    --gameOver-playerColor: #{col.$blue};
 }
 
 [data-theme="gaming-theme"] .game-over-dialog__player:last-child {
-    --gameOver-playerColor: #F58E39;
+    --gameOver-playerColor: #{col.$orange};
 }
 
 [data-theme="gaming-theme"] .game-over-dialog__player:first-child {
@@ -149,7 +149,7 @@
 
 [data-theme="gaming-theme"] .winner-dialog__btn {
     --winnerDialog-btnBorder: 2px solid #ff4d7d;
-    --winnerDialog-btnBorderHover: 4px solid #E71C4F;
+    --winnerDialog-btnBorderHover: 4px solid  #{col.$exitBtnBorderGame};
     --winnerDialog-btnFontSize: 20px;
     --winnerDialog-btnBg: transparent;
     --winnerDialog-btnBorderRadius: 10px;
@@ -165,7 +165,7 @@
 }
 
 [data-theme="gaming-theme"] .memory-card__front {
-    background-color: #f0f0f0;
+    background-color: #{col.$white-standard};
     border-radius: 12px;
     display: flex;
     justify-content: center;

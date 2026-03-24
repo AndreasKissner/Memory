@@ -135,7 +135,7 @@ function handleThemeSelection(themeId: string, themes: Theme[]): void {
   const selectedTheme = themes.find(theme => theme.id === themeId);
 
   if (selectedTheme && themeImage && themeNameSpan) {
-    themeImage.src = selectedTheme.img;
+    themeImage.src = `${import.meta.env.BASE_URL}${selectedTheme.img.replace(/^\//, '')}`;
     themeNameSpan.textContent = selectedTheme.name;
     selectionState.theme = true;
     selectionState.themeId = themeId;
@@ -178,32 +178,6 @@ function initSizeListeners(): void {
     });
   });
 }
-
-/* function initRadioListeners(
-  radios: NodeListOf<HTMLInputElement>,
-  dataKey: string,
-  span: HTMLSpanElement | null,
-  stateKey: 'player' | 'size'
-): void {
-  radios.forEach(radio => {
-    radio.addEventListener('change', () => {
-      const value = radio.dataset[dataKey];
-      if (value && span) {
-        span.textContent = value;
-        if (stateKey === 'player') selectionState.playerColor = value;
-        if (stateKey === 'size') selectionState.boardSize = value;
-      }
-      selectionState[stateKey] = true;
-      checkAllSelected();
-    });
-  });
-}
-// Das dan in loadSettinsdata
-
-initRadioListeners(playerRadios, 'playerId', playerNameSpan, 'player');
-initRadioListeners(sizeRadios, 'sizeId', sizeNameSpan, 'size');
- */
-
 
 /**
  * Saves the provided settings object to localStorage as a JSON string.

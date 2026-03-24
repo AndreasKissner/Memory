@@ -20,7 +20,7 @@ body {
     @include flex.flex($direction: column, $gap: 40px);
 }
 
-// Content 1440px max
+
 .container {
     width: 100%;
     max-width: 1440px;

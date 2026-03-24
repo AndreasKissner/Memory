@@ -10,9 +10,10 @@ import { loadThemeImages } from "./img-theme-loader";
 // ─── Settings aus localStorage ──────────────────
 const savedSettings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
 const themeFolder = savedSettings.folder || 'code-vibe-theme';
+const base = import.meta.env.BASE_URL;
 
 document.body.dataset.theme = themeFolder;
-loadThemeImages(themeFolder);
+loadThemeImages(themeFolder, base);
 
 // ─── State ──────────────────────────────────────
 const gameState: GameState = {
@@ -25,6 +26,7 @@ const gameState: GameState = {
 };
 
 // ─── DOM Elemente ───────────────────────────────
+
 const scoreBlueEl = document.querySelector<HTMLSpanElement>('.player-scores__player--blue .player-scores__points');
 const scoreOrangeEl = document.querySelector<HTMLSpanElement>('.player-scores__player--orange .player-scores__points');
 const currentPlayerIcon = document.querySelector<HTMLImageElement>('.current-player__icon');
@@ -73,8 +75,9 @@ function generateCards(folder: string): void {
   const pairs = getPairsFromBoardSize(savedSettings.boardSize);
   let cards: string[] = [];
   for (let i = 1; i <= pairs; i++) {
-    cards.push(createCardTemplate(i, folder));
-    cards.push(createCardTemplate(i, folder));
+    cards.push(createCardTemplate(i, folder, base));
+     cards.push(createCardTemplate(i, folder, base));
+ 
   }
   cards.sort(() => Math.random() - 0.5);
   cardsGrid.innerHTML = cards.join('');
@@ -142,9 +145,9 @@ function switchPlayer(): void {
 
 function updateCurrentPlayerIcon(): void {
   if (!currentPlayerIcon) return;
-  currentPlayerIcon.src = gameState.currentPlayer === 'Blue'
-    ? `/assets/img/themes/${themeFolder}/current-player-blue.svg`
-    : `/assets/img/themes/${themeFolder}/current-player-orange.svg`;
+currentPlayerIcon.src = gameState.currentPlayer === 'Blue'
+  ? `${base}assets/img/themes/${themeFolder}/current-player-blue.svg`
+  : `${base}assets/img/themes/${themeFolder}/current-player-orange.svg`;
 }
 
 // ─── Game Over ──────────────────────────────────
@@ -177,11 +180,11 @@ function updateWinnerUI(isTie: boolean, blueWins: boolean): void {
   winnerName.classList.remove('winner-dialog__name--blue', 'winner-dialog__name--orange');
   if (isTie) {
     winnerName.textContent = "It's a Tie!";
-    winnerIcon.src = `/assets/img/themes/${themeFolder}/chess-blue.svg`;
+  winnerIcon.src = `${base}assets/img/themes/${themeFolder}/chess-blue.svg`;
   } else {
     winnerName.textContent = blueWins ? 'Blue Player' : 'Orange Player';
     winnerName.classList.add(blueWins ? 'winner-dialog__name--blue' : 'winner-dialog__name--orange');
-    winnerIcon.src = `/assets/img/themes/${themeFolder}/chess-${blueWins ? 'blue' : 'orange'}.svg`;
+   winnerIcon.src = `${base}assets/img/themes/${themeFolder}/chess-${blueWins ? 'blue' : 'orange'}.svg`;
   }
 }
 
@@ -189,6 +192,9 @@ function showWinner(): void {
   if (!winnerDialog || !winnerName || !winnerIcon || !backToStartBtn) return;
   const { isTie, blueWins } = getWinnerState();
   updateWinnerUI(isTie, blueWins);
+  const confetti = document.querySelector<HTMLImageElement>('.winner-dialog__confetti');
+  const confettiFile = themeFolder === 'gaming-theme' ? 'confetti-game.png' : 'confetti.svg';
+  if (confetti) confetti.src = `${base}assets/img/themes/${themeFolder}/${confettiFile}`;
   backToStartBtn.textContent = themeFolder === 'gaming-theme' ? 'Home' : 'Back to start';
   setTimeout(() => winnerDialog.showModal(), 2000);
 }
@@ -206,12 +212,12 @@ cards.forEach(card => card.addEventListener('click', onCardClick));
 openButton?.addEventListener('click', () => quitDialog?.showModal());
 quitDialog?.addEventListener('close', () => {
   if (quitDialog.returnValue === 'confirm') {
-    window.location.href = '/pages_html/settings.html';
+  window.location.href = `${base}pages_html/settings.html`;
   }
 });
 
 backToStartBtn?.addEventListener('click', () => {
-  window.location.href = '/pages_html/settings.html';
+ window.location.href = `${base}pages_html/settings.html`;
 });
 
 // TEMP: game over dialog sofort anzeigen

@@ -5,7 +5,7 @@
 
 
 [data-theme="code-vibe-theme"] {
-    --body-bg: #303131;
+    --body-bg: #{col.$bgCodeVibes};
 }
 
 [data-theme="code-vibe-theme"] .game-header {
@@ -17,9 +17,9 @@
 [data-theme="code-vibe-theme"] .player-scores {
     --playerScore-width: 300px;
     --playerScore-height: 100%;
-    --playerScore-bg: #86E9D633;
-    --playerBlue-color: #2BB1FF;
-    --playerOrange-color: #F58E39;
+    --playerScore-bg: #{col.$playerScoreBgVibes};
+    --playerBlue-color:  #{col.$blue};
+    --playerOrange-color:  #{col.$orange};
     --playerScore-points: 24px;
     --currentPlayer-label-font: #{font.$red-rose};
 
@@ -35,7 +35,6 @@
     --grid-gap: ;
 }
 
-//1.diaolog
 [data-theme="code-vibe-theme"] .quit-dialog {
     --dialog1-bg: #{col.$white-standard};
 }
@@ -46,44 +45,41 @@
 
 [data-theme="code-vibe-theme"] .quit-dialog__button {
     --dialog1-font: #{font.$red-rose};
-    --dialog1BackBtn-BorderColor: 2px solid #4DD5BC;
+    --dialog1BackBtn-BorderColor: 2px solid #{col.$hoverExitBtnVibes};
 }
 
 [data-theme="code-vibe-theme"] .quit-dialog__button--primary {
-    --btnPrimary-bg: #4DD5BC;
-    --btnPrimary-border: #4DD5BC;
+    --btnPrimary-bg: #{col.$bgQuitBtnprimaer};
+    --btnPrimary-border: #{col.$btnBorderExitVibes};
     --btnPrimary-color: #{col.$white-standard};
-    --btnPrimary-bgHover: #4dd5bc6a;
-    --btnPrimary-borderHover: #4DD5BC;
+    --btnPrimary-bgHover: #{col.$bgQuitBtnprimaerHover};
+    --btnPrimary-borderHover:#{col.$btnBorderExitVibes};
     --btnPrimary-colorHover: #{col.$white-standard};
 }
 
 [data-theme="code-vibe-theme"] .quit-dialog__button--secondary {
     --btnSecondary-bg: transparent;
-    --btnSecondary-border: #4DD5BC;
-    --btnSecondary-color: #4DD5BC;
+    --btnSecondary-border:#{col.$btnBorderExitVibes};
+    --btnSecondary-color: #{col.$btnBorderExitVibes};
     --btnSecondary-bgHover: #4dd5bc23;
-    --btnSecondary-borderHover: #4DD5BC;
+    --btnSecondary-borderHover:#{col.$btnBorderExitVibes};
 }
 
 //exit Button
 [data-theme="code-vibe-theme"] .exit-game {
-    --exitGame-bg: #86E9D633;
-    --exitBtn-border: 1px solid #4DD5BC;
+    --exitGame-bg: #{col.$playerScoreBgVibes};
+    --exitBtn-border: 1px solid #{col.$btnBorderExitVibes};
     --currentPlayer-label-font: #{font.$red-rose};
     --exitIcon-url: url('/assets/img/themes/code-vibe-theme/exit-code-vibe.svg');
 }
 
 [data-theme="code-vibe-theme"] .exit-game:hover {
-    --exitGame-hoverBorder: 4px solid #4DD5BC;
+    --exitGame-hoverBorder: 4px solid #{col.$btnBorderExitVibes};;
     --exitIcon-url: url('/assets/img/themes/code-vibe-theme/exit-code-vibe.svg');
 }
 
-
-/////Game Over dialog
-
 [data-theme="code-vibe-theme"] .game-over-dialog {
-    --gameOverDialog-bg: #303131;
+    --gameOverDialog-bg:#{col.$bgCodeVibes};
 }
 
 
@@ -116,7 +112,7 @@
 }
 
 [data-theme="code-vibe-theme"] .game-over-dialog__scores {
-    --gameOverDialog-scoreBg: #86E9D633;
+    --gameOverDialog-scoreBg: #{col.$playerScoreBgVibes};
 }
 
 // Winner Dialog
@@ -126,9 +122,9 @@
 }
 
 [data-theme="code-vibe-theme"] .winner-dialog__btn {
-    --winnerDialog-btnBorder: 1px solid #4DD5BC;
+    --winnerDialog-btnBorder: 1px solid #{col.$btnBorderExitVibes};;
     --winnerDialog-btnFontSize: 24px;
-    --winnerDialog-btnBg: #86E9D633;
+    --winnerDialog-btnBg: #{col.$playerScoreBgVibes};
     --winnerDialog-padding: 16px 24px;
 }
 
@@ -137,9 +133,16 @@
     --memoryCards-height: 120px;
 }
 
+@keyframes matchFlash {
+    0%   { box-shadow: 0 0 0px #84e908; }
+    50%  { box-shadow: 0 0 20px 6px #c0d904; }
+    100% { box-shadow: 0 0 6px 2px #62b50a; }
+}
+
+
 [data-theme="code-vibe-theme"] .memory-card.is-matched .memory-card__inner {
-    --matchedCard-border: 5px solid #4DD5BC;
-  /*   --matchedCard-borderRadius: 8px; */
+    --matchedCard-border: 5px solid #{col.$btnBorderExitVibes};;
+     animation: matchFlash 0.5s ease forwards;
 }
 
 [data-theme="code-vibe-theme"] .cards-grid {
