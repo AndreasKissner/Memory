@@ -12,43 +12,34 @@
 
 @use "../abstract/color-variables" as col;
 @use "../abstract/font-varibales" as font;
-@use "../abstract/mixins/mixins-standard" as flex;
+@use "../abstract/mixins/mixins-standard" as mix;
 @use "../abstract/font-varibales";
 
 body {
     background-color: var(--body-bg);
     height: 100vh;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    @include mix.flex($align: flex-start);
 }
 
 .game-wrapper {
     width: 1220px;
     height: 650px;
     margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include mix.flex($direction: column);
 }
 
 .game-header {
     width: 100%;
     height: 65px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include mix.flex();
     background-color: var(--gameHeader-bg);
 
 
     &__nav {
         width: 90%;
         height: var(--gameHeader-navHeight);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include mix.flex($justify: space-between);
         background-color: var(--bgColor-header);
         padding: var(--padding-headerNav);
         border-radius: var(--gameHeader-borderRadius);
@@ -58,11 +49,9 @@ body {
 .player-scores {
     width: var(--playerScore-width);
     height: var(--playerScore-height);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include mix.flex($gap: 20px);
     font-weight: 700;
-    gap: 20px;
+
     font-family: var(--currentPlayer-label-font);
     background-color: var(--playerScore-bg);
     border-radius: var(--playerScore-radius);
@@ -93,12 +82,9 @@ body {
 }
 
 .current-player {
-    align-self: flex-end;
+
     align-self: var(--currentPalyer-alignSelf);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    @include mix.flex($gap: 10px);
 
     &__label {
         font-family: var(--currentPlayer-label-font);
