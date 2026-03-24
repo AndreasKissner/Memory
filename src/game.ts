@@ -65,6 +65,8 @@ function updateGridLayout(boardSize: string): void {
   }
 }
 
+
+
 function generateCards(folder: string): void {
   const cardsGrid = document.querySelector<HTMLElement>('.cards-grid');
   if (!cardsGrid) return;
@@ -213,5 +215,5 @@ backToStartBtn?.addEventListener('click', () => {
 });
 
 // TEMP: game over dialog sofort anzeigen
-/* gameOverDialog?.showModal();  */
-/* winnerDialog?.showModal();  */
+ /* gameOverDialog?.showModal();  */ 
+winnerDialog?.showModal();  

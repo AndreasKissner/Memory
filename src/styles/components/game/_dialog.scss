@@ -1,5 +1,7 @@
 @use "../../abstract/color-variables" as col;
 @use "../../abstract/font-varibales" as font;
+@use "../../abstract//mixins/mixins-standard" as mix;
+
 
 .quit-dialog {
     border-radius: var(--quitDialog-border);
@@ -49,15 +51,12 @@
     &__container {
         padding: 50px 40px;
         text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        @include mix.flex($direction: column);
     }
 
     &__title {
         font-family: var(--dialog1-font);
-        font-size: 32px;
-        font-weight: 700;
+        @include mix.fontSizeWeight(32px, 700);
         color: var(--quitDialog-textColor, #333333);
         margin: 0 0 40px 0;
         line-height: 1.2;
@@ -76,8 +75,7 @@
 
 &__button {
     cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
+    @include mix.fontSizeWeight(18px, 700);
     padding: 15px 30px;
     border-radius: var(--dialog1BackBtn-border);
     box-sizing: border-box;

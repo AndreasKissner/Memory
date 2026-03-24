@@ -1,21 +1,16 @@
 @use "../../abstract/color-variables" as col;
 @use "../../abstract/font-varibales" as font;
-@use "../../abstract/mixins/mixins-standard" as flex;
+@use "../../abstract/mixins/mixins-standard" as mix;
 
 .exit-game {
     background-color: var(--exitGame-bg);
-    width: 210px;
-    height: 65px;
+    @include mix.size(210px, 65px);
     border: var(--exitBtn-border);
     border-radius: var(--exitBtn-borderRadius);
-    font-size: 24px;
-    font-weight: 700;
+    @include mix.fontSizeWeight(24px, 700);
     font-family: font.$red-rose;
     color: col.$white-standard;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+    @include mix.flex($gap: 15px);
     cursor: pointer;
     transition: all 0.05 ease-in-out;
 
@@ -24,8 +19,7 @@
     }
 
     &__icon {
-        width: 32px;
-        height: 32px;
+        @include mix.size(32px, 32px);
         flex-shrink: 0;
         display: inline-block;
         background-image: var(--exitIcon-url);

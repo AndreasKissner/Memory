@@ -1,5 +1,7 @@
 @use "../../abstract/color-variables" as col;
 @use "../../abstract/font-varibales" as font;
+@use "../../abstract/mixins/mixins-standard" as mix;
+
 
 .game-over-dialog {
     width: 100vw;
@@ -13,55 +15,35 @@
 .game-over-dialog__container {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+    @include mix.flex($direction: column, $gap: 30px);
     color: col.$white-standard;
     font-family: var(--gameOverDialog-Font);
 }
 
 .game-over-dialog__img {
     content: var(--gameOver-img);
-    width: 980px;
-    height: 121px;
+    @include mix.size(980px, 121px);
     margin-bottom: 80px;
-}
-
-.game-over-dialog__title {
-    font-size: 64px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
+} 
 
 .game-over-dialog__subtitle {
-    font-size: 26px;
-    font-weight: 400;
+    @include mix.fontSizeWeight(26px, 400);
 }
 
 .game-over-dialog__scores {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
+    @include mix.flex($gap: 60px);
     padding: 17px 20px;
     background-color: var(--gameOverDialog-scoreBg);
     border-radius: var(--gameOverDialog-scoreBorderRadius);
 }
 
 .game-over-dialog__player {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    @include mix.flex($direction: row, $gap: 10px);
 }
 
 .game-over-dialog__icon {
     content: var(--gameOver-playerIcon);
-    width: 24px;
-    height: 20px;
+    @include mix.size(24px, 20px);
 }
 
 .game-over-dialog__name {

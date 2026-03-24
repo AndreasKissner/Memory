@@ -177,11 +177,17 @@
     height: auto;
 }
 
+@keyframes matchFlash {
+    0%   { box-shadow: 0 0 0px #84e908; }
+    50%  { box-shadow: 0 0 20px 6px #c0d904; }
+    100% { box-shadow: 0 0 6px 2px #d705b1; }
+}
+
 [data-theme="gaming-theme"] .memory-card.is-matched .memory-card__inner {
-    --matchedCard-border: 3px solid #ED1B76;
     --matchedCard-borderRadius: 12px;
+    animation: matchFlash 0.5s ease forwards;
 }
 
 [data-theme="gaming-theme"] .cards-grid {
-  --cardsGrid-gap:0;
+  --cardsGrid-gap:9px;
 }

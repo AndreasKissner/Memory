@@ -10,3 +10,13 @@
   width: $width;
   height: $height;
 }
+
+@mixin fontSizeWeight($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin fullSize($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}

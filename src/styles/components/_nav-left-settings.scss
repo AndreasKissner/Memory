@@ -155,7 +155,6 @@
     &__sub-nav {
         @include flex.flex($direction: null, $justify: flex-end, $align: center, $gap: 20px);
         @include flex.size(590px, 81px);
-        margin-bottom: 40px;
         background-color: col.$white-bg-setting-start;
     }
 
