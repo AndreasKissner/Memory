@@ -7,15 +7,18 @@ import type { GameState } from "./interface-game";
 import { createCardTemplate } from "./templates/card-template";
 import { loadThemeImages } from "./img-theme-loader";
 
-// ─── Settings aus localStorage ──────────────────
+
 const savedSettings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
 const themeFolder = savedSettings.folder || 'code-vibe-theme';
 const base = import.meta.env.BASE_URL;
+const GRID_LAYOUTS = {
+  '16 Cards': { width: '555px', columns: 'repeat(4, 120px)' },
+  '24 Cards': { width: '750px', columns: 'repeat(6, 110px)' },
+  '36 Cards': { width: '750px', columns: 'repeat(6, 120px)' }
+} as const;
 
-document.body.dataset.theme = themeFolder;
-loadThemeImages(themeFolder, base);
+initTheme(themeFolder);
 
-// ─── State ──────────────────────────────────────
 const gameState: GameState = {
   firstCard: null,
   secondCard: null,
@@ -25,7 +28,6 @@ const gameState: GameState = {
   scoreOrange: 0
 };
 
-// ─── DOM Elemente ───────────────────────────────
 
 const scoreBlueEl = document.querySelector<HTMLSpanElement>('.player-scores__player--blue .player-scores__points');
 const scoreOrangeEl = document.querySelector<HTMLSpanElement>('.player-scores__player--orange .player-scores__points');
@@ -40,6 +42,10 @@ const winnerName = document.querySelector<HTMLHeadingElement>('.winner-dialog__n
 const winnerIcon = document.querySelector<HTMLImageElement>('.winner-dialog__icon');
 const backToStartBtn = document.querySelector<HTMLButtonElement>('.winner-dialog__btn');
 
+function initTheme(folder: string): void {
+  document.body.dataset.theme = folder;
+  loadThemeImages(folder, base);
+}
 
 /**
  * Grid configuration for each board size.
@@ -59,19 +65,11 @@ function getPairsFromBoardSize(boardSize: string): number {
 function updateGridLayout(boardSize: string): void {
   const cardsGrid = document.querySelector<HTMLElement>('.cards-grid');
   if (!cardsGrid) return;
-  if (boardSize === '16 Cards') {
-    cardsGrid.style.width = '555px';
-    cardsGrid.style.gridTemplateColumns = 'repeat(4, 120px)';
-  } else if (boardSize === '24 Cards') {
-    cardsGrid.style.width = '750px';
-    cardsGrid.style.gridTemplateColumns = 'repeat(6, 110px)';
-  } else if (boardSize === '36 Cards') {
-    cardsGrid.style.width = '1060px';
-    cardsGrid.style.gridTemplateColumns = 'repeat(9, 110px)';
-    cardsGrid.style.marginRight = '60px';
-  }
+  const layout = GRID_LAYOUTS[boardSize as keyof typeof GRID_LAYOUTS];
+  if (!layout) return;
+  cardsGrid.style.width = layout.width;
+  cardsGrid.style.gridTemplateColumns = layout.columns;
 }
-
 /**
  * Generates and renders shuffled card pairs into the grid.
  * @param folder - Theme folder name used to load card images
@@ -270,7 +268,3 @@ quitDialog?.addEventListener('close', () => {
 backToStartBtn?.addEventListener('click', () => {
   window.location.href = `${base}pages_html/settings.html`;
 });
-
-// TEMP: game over dialog sofort anzeigen
- /* gameOverDialog?.showModal();  */ 
-/* winnerDialog?.showModal();  */

@@ -24,7 +24,7 @@ body {
 
 .game-wrapper {
     width: 1220px;
-    height: 650px;
+    min-height: 650px;
     margin-top: 40px;
     @include mix.flex($direction: column);
 }
@@ -96,10 +96,11 @@ body {
 }
 
 .cards-grid {
-    height: 530px;
+    min-height: 530px;
     display: grid;
     gap: var(--cardsGrid-gap);
     align-self: center;
     margin-top: auto;
     margin-bottom: 20px;
+    margin-top: 30px;
 }

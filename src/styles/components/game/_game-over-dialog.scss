@@ -73,3 +73,7 @@
     animation: slideDown 0.6s ease forwards;
     max-height: 100dvh;
 }
+
+.game-over-dialog:focus {
+    outline: none;
+}

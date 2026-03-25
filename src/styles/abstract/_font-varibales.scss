@@ -7,6 +7,13 @@
 }
 
 @font-face {
+  font-family: 'AlmaraiReg';
+  src: url('/fonts/almarai400.ttf') format('truetype');
+  font-weight: 400 900;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Redrose';
   src: url('/fonts/red-rose-bold.ttf') format('truetype');
   font-weight: 400 900;
@@ -28,6 +35,7 @@
 }
 
 $almarai: 'Almarai', sans-serif;
+$almarai400: 'Almarai400', sans-serif;
 $red-rose: 'Redrose', sans-serif;
 $orbitron: 'Orbitron', sans-serif;
 $figtree: 'Figtree', sans-serif;

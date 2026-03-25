@@ -31,10 +31,6 @@
 
 }
 
-[data-theme="code-vibe-theme"] .cards-grid {
-    --grid-gap: ;
-}
-
 [data-theme="code-vibe-theme"] .quit-dialog {
     --dialog1-bg: #{col.$white-standard};
 }
@@ -128,9 +124,9 @@
     --winnerDialog-padding: 16px 24px;
 }
 
-[data-theme="code-vibe-theme"] .memory-card__img {
-    --memoryCards-width: 120px;
-    --memoryCards-height: 120px;
+[data-theme="code-vibe-theme"] .memory-card {
+    --memoryCard-width: 120px;
+    --memoryCard-height: 120px;
 }
 
 @keyframes matchFlash {

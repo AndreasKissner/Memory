@@ -1,4 +1,3 @@
-// Ganz oben, vor allen anderen imports
 document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.style.visibility = 'visible';
 });
@@ -34,7 +33,7 @@ const subNav = document.querySelector<HTMLElement>('.theme-preview__sub-nav');
 /**
  * Asynchronously loads settings data from a JSON file and
  * initializes theme, player, and size event listeners.
- * * @returns {Promise<void>} A promise that resolves when initialization is complete.
+ * @returns A promise that resolves when initialization is complete.
  */
 async function loadSettingsData(): Promise<void> {
   const base = import.meta.env.BASE_URL;
@@ -47,36 +46,61 @@ async function loadSettingsData(): Promise<void> {
 
 /**
  * Sets up change event listeners for a collection of theme radio buttons.
- * When a radio button is selected, it extracts the theme ID from the 
+ * When a radio button is selected, it extracts the theme ID from the
  * element's dataset and triggers the theme selection handler.
- * * @param {Theme[]} themes - An array of available theme objects to be processed during selection.
- * @returns {void}
+ * @param themes - An array of available theme objects to be processed during selection.
+ */
+/**
+ * Sets up mouseenter, mouseleave, and change event listeners
+ * for all theme radio buttons and their parent option elements.
+ * @param themes - Array of available theme objects.
  */
 function initThemeListeners(themes: Theme[]): void {
   themeRadios.forEach(radio => {
+    const option = radio.closest<HTMLElement>('.nav-options__option');
+    option?.addEventListener('mouseenter', () => onThemeHover(radio, themes));
+    option?.addEventListener('mouseleave', () => onThemeHoverEnd(themes));
     radio.addEventListener('change', () => {
       const themeId = radio.dataset.themeId;
-      if (themeId) {
-        handleThemeSelection(themeId, themes);
-      }
+      if (themeId) handleThemeSelection(themeId, themes);
     });
   });
 }
 
-loadSettingsData();
+/**
+ * Updates the preview image on hover if no theme has been selected yet.
+ * If a theme is already selected, hover has no effect.
+ * @param radio - The hovered radio input element.
+ * @param themes - Array of available theme objects.
+ */
+function onThemeHover(radio: HTMLInputElement, themes: Theme[]): void {
+  if (selectionState.theme) return;
+  const hoveredTheme = themes.find(t => t.id === radio.dataset.themeId);
+  if (hoveredTheme && themeImage) {
+    themeImage.src = `${import.meta.env.BASE_URL}${hoveredTheme.img.replace(/^\//, '')}`;
+  }
+}
+
+/**
+ * Resets the preview image to the default when the cursor leaves a theme option.
+ * Only runs if no theme has been selected yet.
+ * @param themes - Array of available theme objects.
+ */
+function onThemeHoverEnd(themes: Theme[]): void {
+  if (!themeImage || selectionState.theme) return;
+  themeImage.src = `${import.meta.env.BASE_URL}assets/img/settings/theme-img1.svg`;
+}
 
 /**
  * Evaluates the current selection state to determine if all required
  * settings (theme, player, and size) have been chosen.
- * * If all criteria are met, it updates the UI components (dividers and start button)
+ * If all criteria are met, it updates the UI components (dividers and start button)
  * and persists the configuration to storage.
- * * @returns {void}
  */
 function checkAllSelected(): void {
-  const allSelected = selectionState.theme && selectionState.player && selectionState.size;
+  const allSelected: boolean = selectionState.theme && selectionState.player && selectionState.size;
   updateDividers(allSelected);
   updateStartButton(allSelected);
-
   if (allSelected) {
     saveCurrentSettings();
   }
@@ -181,3 +205,5 @@ function initSizeListeners(): void {
 function saveSettings(settings: SavedSettings): void {
   localStorage.setItem('gameSettings', JSON.stringify(settings));
 }
+
+loadSettingsData();

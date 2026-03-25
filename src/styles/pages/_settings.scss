@@ -4,6 +4,7 @@
 @use "../abstract/color-variables" as col;
 @use "../abstract/mixins/mixins-standard" as mix;
 
+
 body {
     background-color: col.$white-standard;
     height: 100vh;
