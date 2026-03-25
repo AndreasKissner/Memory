@@ -36,7 +36,7 @@ const subNav = document.querySelector<HTMLElement>('.theme-preview__sub-nav');
  * initializes theme, player, and size event listeners.
  * * @returns {Promise<void>} A promise that resolves when initialization is complete.
  */
-async function loadSettingsData() {
+async function loadSettingsData(): Promise<void> {
   const base = import.meta.env.BASE_URL;
   const response = await fetch(`${base}json/data/settings-data.json`);
   const data: SettingsData = await response.json();
