@@ -23,16 +23,13 @@ const themeRadios = document.querySelectorAll<HTMLInputElement>('[name="theme-se
 const playerRadios = document.querySelectorAll<HTMLInputElement>('[name="player-selection"]');
 const sizeRadios = document.querySelectorAll<HTMLInputElement>('[name="size-selection"]');
 const startButton = document.querySelector<HTMLButtonElement>('.settings-btn');
-
 const themeDividerBig = document.querySelector<HTMLImageElement>('.theme-divider-big');
 const themeDividerSmall = document.querySelector<HTMLImageElement>('.theme-divider-small');
 const playerDividerBig = document.querySelector<HTMLImageElement>('.player-divider-big');
 const playerDividerSmall = document.querySelector<HTMLImageElement>('.player-divider-small');
-
 const playerNameSpan = document.querySelector<HTMLSpanElement>('.sub-item__player-name');
 const sizeNameSpan = document.querySelector<HTMLSpanElement>('.sub-item__size-name');
-
-
+const subNav = document.querySelector<HTMLElement>('.theme-preview__sub-nav');
 
 /**
  * Asynchronously loads settings data from a JSON file and
@@ -89,8 +86,6 @@ function checkAllSelected(): void {
  * Toggles the 'is-selected' class on theme and player dividers.
  * @param allSelected - True to add the class, false to remove it.
  */
-const subNav = document.querySelector<HTMLElement>('.theme-preview__sub-nav');
-
 function updateDividers(allSelected: boolean): void {
   const action = allSelected ? 'add' : 'remove';
   themeDividerBig?.classList[action]('is-selected');
@@ -126,6 +121,7 @@ function saveCurrentSettings(): void {
     folder: selectionState.folder
   });
 }
+
 /**
  * Updates the UI and selection state based on the chosen theme.
  * @param themeId - The unique identifier of the selected theme.
@@ -133,7 +129,6 @@ function saveCurrentSettings(): void {
  */
 function handleThemeSelection(themeId: string, themes: Theme[]): void {
   const selectedTheme = themes.find(theme => theme.id === themeId);
-
   if (selectedTheme && themeImage && themeNameSpan) {
     themeImage.src = `${import.meta.env.BASE_URL}${selectedTheme.img.replace(/^\//, '')}`;
     themeNameSpan.textContent = selectedTheme.name;
