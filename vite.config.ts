@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig(({ command }) => ({
-  base: command === 'build' 
-    ? "/DeveloperAkademie/Modul14/memory/" 
-    : "/",
+  // Wir nutzen relative Pfade, damit es auf IONOS und überall funktioniert
+  base: './',
   build: {
     rollupOptions: {
       input: {

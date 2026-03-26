@@ -36,8 +36,8 @@ const subNav = document.querySelector<HTMLElement>('.theme-preview__sub-nav');
  * @returns A promise that resolves when initialization is complete.
  */
 async function loadSettingsData(): Promise<void> {
-  const base = import.meta.env.BASE_URL;
-  const response = await fetch(`${base}json/data/settings-data.json`);
+  const jsonPath = new URL('../json/data/settings-data.json', import.meta.url).href;
+  const response = await fetch(jsonPath);
   const data: SettingsData = await response.json();
   initThemeListeners(data.themes);
   initPlayerListeners();
@@ -77,7 +77,7 @@ function onThemeHover(radio: HTMLInputElement, themes: Theme[]): void {
   if (selectionState.theme) return;
   const hoveredTheme = themes.find(t => t.id === radio.dataset.themeId);
   if (hoveredTheme && themeImage) {
-    themeImage.src = `${import.meta.env.BASE_URL}${hoveredTheme.img.replace(/^\//, '')}`;
+    themeImage.src = `../${hoveredTheme.img.replace(/^\//, '')}`;
   }
 }
 
@@ -88,7 +88,7 @@ function onThemeHover(radio: HTMLInputElement, themes: Theme[]): void {
  */
 function onThemeHoverEnd(themes: Theme[]): void {
   if (!themeImage || selectionState.theme) return;
-  themeImage.src = `${import.meta.env.BASE_URL}assets/img/settings/theme-img1.svg`;
+  themeImage.src = `../assets/img/settings/theme-img1.svg`;
 }
 
 /**
@@ -127,7 +127,7 @@ function updateStartButton(allSelected: boolean): void {
   if (allSelected) {
     startButton?.removeAttribute('disabled');
     startButton?.addEventListener('click', () => {
-      window.location.href = `${import.meta.env.BASE_URL}pages_html/game.html`;
+      window.location.href = 'game.html';
     });
   } else {
     startButton?.setAttribute('disabled', '');
@@ -154,7 +154,7 @@ function saveCurrentSettings(): void {
 function handleThemeSelection(themeId: string, themes: Theme[]): void {
   const selectedTheme = themes.find(theme => theme.id === themeId);
   if (selectedTheme && themeImage && themeNameSpan) {
-    themeImage.src = `${import.meta.env.BASE_URL}${selectedTheme.img.replace(/^\//, '')}`;
+    themeImage.src = `../${selectedTheme.img.replace(/^\//, '')}`;
     themeNameSpan.textContent = selectedTheme.name;
     selectionState.theme = true;
     selectionState.themeId = themeId;

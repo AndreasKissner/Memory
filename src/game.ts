@@ -10,7 +10,7 @@ import { loadThemeImages } from "./img-theme-loader";
 
 const savedSettings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
 const themeFolder = savedSettings.folder || 'code-vibe-theme';
-const base = import.meta.env.BASE_URL;
+const base = '../';
 const GRID_LAYOUTS = {
   '16 Cards': { width: '555px', columns: 'repeat(4, 120px)' },
   '24 Cards': { width: '750px', columns: 'repeat(6, 110px)' },
